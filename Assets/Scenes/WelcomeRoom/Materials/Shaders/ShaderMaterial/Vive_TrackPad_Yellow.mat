@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Vive_TrackPad
+  m_Name: Vive_TrackPad_Yellow
   m_Shader: {fileID: -6465566751694194690, guid: 381544a6be91bcf4887c78d23f9c088c,
     type: 3}
   m_ShaderKeywords: 
@@ -23,6 +23,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs: []
     m_Floats:
+    - Vector1_41769C1F: 0.1
     - Vector1_54A2FDA0: 1000
     - Vector1_A3B9E2E9: 2
     - Vector1_C8091719: 0.1
