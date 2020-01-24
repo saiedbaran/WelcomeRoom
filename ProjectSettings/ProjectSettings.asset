@@ -12,7 +12,7 @@ PlayerSettings:
   targetDevice: 2
   useOnDemandResources: 0
   accelerometerFrequency: 60
-  companyName: TUGRaz_ISDS
+  companyName: TUGraz_ISDS
   productName: WelcomeRoom
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
@@ -118,7 +118,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  bundleVersion: 0.125
+  bundleVersion: 0.14
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0

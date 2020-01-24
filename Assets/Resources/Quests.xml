@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="Windows-1252"?>
+<QuestManager>
+    <QuestList>
+
+        <MainQuest Key="Move inside the room">
+            <SubQuest>Try to Move Physically</SubQuest>
+            <SubQuest Key="i">Learn Teleportation system</SubQuest>
+        </MainQuest>
+        <MainQuest Key="Wear the SmartWatch">
+            <SubQuest Key="i">Learn Grab interaction</SubQuest>
+            <SubQuest>place watch on your left hand wrist</SubQuest>
+        </MainQuest>
+
+    </QuestList>
+</QuestManager>

@@ -7,11 +7,17 @@ namespace WelcomeRoom.QuestManager
 {
     public abstract class Quest : MonoBehaviour
     {
-        [SerializeField] protected GameObject questPrefab;
+        public GameObject questPrefab;
+        public List<GameObject> subQuests = new List<GameObject>();
 
-        [SerializeField] protected string QuestText;
+        public string QuestText { get; set; }
 
         [SerializeField] protected Vector3 QuestOffset = Vector3.zero; // subquest (0, -0.1, 0), mainquest 0.13, 0.16
+
+        [Header("Status")]
+        public GameObject LampPlaceHolder;
+        public GameObject ActiveLamp;
+        public GameObject DeactiveLamp;
 
         public bool isActive { get; set; }
 
@@ -25,6 +31,14 @@ namespace WelcomeRoom.QuestManager
                 return;
 
             textComponent.text = QuestText;
+        }
+
+        public abstract void setPrefab();
+
+        public void ChangeText(string _QuestText)
+        {
+            var textComponent = GetComponentInChildren<TextMeshPro>();
+            textComponent.text = _QuestText;
         }
     }
 }
