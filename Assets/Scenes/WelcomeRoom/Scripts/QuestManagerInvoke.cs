@@ -19,6 +19,7 @@ public class QuestManagerInvoke : MonoBehaviour
         if (!gameObject.GetComponentInChildren<QuestManagerInstance>())
         {
             GameObject questManager = Instantiate(QuestManager) as GameObject;
+            questManager.SetActive(true);
             questManager.transform.parent = Parent.transform;
             questManager.transform.localPosition = Position;
             questManager.transform.localRotation = Quaternion.Euler(Rotation);
