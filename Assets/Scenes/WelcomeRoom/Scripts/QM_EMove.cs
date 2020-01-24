@@ -24,7 +24,7 @@ public class QM_EMove : MonoBehaviour
         _startTime = Time.time;
 
         iniPosition = transform.position;
-        finalPosition = new Vector3(iniPosition.x, 1.5f, iniPosition.z);
+        finalPosition = new Vector3(iniPosition.x, Camera.main.transform.position.y, iniPosition.z);
         isAlreadyThere = true;
     }
 

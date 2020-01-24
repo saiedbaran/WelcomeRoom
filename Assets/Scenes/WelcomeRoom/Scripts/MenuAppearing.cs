@@ -16,7 +16,7 @@ public class MenuAppearing : MonoBehaviour
     }
     private void OnTriggerEnter(Collider collider)
     {
-        if(collider.transform.tag == "MenuPlace")
+        if (collider.transform.tag == "MenuPlace")
         {
             Invoke("InventoryGeneration", InventroyGenerationDelay);
             //InventoryGeneration();
