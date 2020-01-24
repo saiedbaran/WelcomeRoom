@@ -10,6 +10,7 @@ public class LookToPlayer : MonoBehaviour
     void Update()
     {
         transform.up = new Vector3(0, 1, 0);
+        
         Etime = Etime + Time.deltaTime;
         if (Etime > Delay)
         {
