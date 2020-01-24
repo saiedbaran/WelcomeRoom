@@ -18,8 +18,10 @@ namespace WelcomeRoom.QuestManager
         [SerializeField] Vector3 SQBodyOffset = new Vector3(0f, -0.1f, 0f);
         public GameObject DataObjectRoot;
 
-        public List<string> mainQuestsList = new List<string>();
+        // public List<string> mainQuestsList = new List<string>();
         public List<GameObject> MainQuestObjects = new List<GameObject>();
+
+
 
         public void ModifyQuestmanager()
         {
@@ -28,7 +30,7 @@ namespace WelcomeRoom.QuestManager
 
         public void ReadQuestXML()
         {
-            mainQuestsList.Clear();
+            // mainQuestsList.Clear();
             MainQuestObjects.Clear();
 
             var text = Resources.Load<TextAsset>(QuestsPath);
@@ -54,6 +56,7 @@ namespace WelcomeRoom.QuestManager
                 mainQuestObject.transform.parent = DataObjectRoot.transform;
                 mainQuestObject.transform.localScale = new Vector3(1, 1, 1);
                 mainQuestObject.transform.localPosition = MQBodyiniOffset + MQBodyOffset * _mainoffsetNum;
+                mainQuestObject.name = Qtext;
 
                 mainQuestObject.GetComponent<MainQuest>().QuestText = Qtext;
                 mainQuestObject.GetComponent<MainQuest>().ChangeText(Qtext);
@@ -65,6 +68,7 @@ namespace WelcomeRoom.QuestManager
                     subQuestObject.transform.parent = mainQuestObject.transform;
                     subQuestObject.transform.localScale = new Vector3(1, 1, 1);
                     subQuestObject.transform.localPosition = _SuboffsetNum * SQBodyOffset;
+                    subQuestObject.name = subQuestText.Value;
 
                     subQuestObject.GetComponent<SubQuest>().QuestText = subQuestText.Value;
                     subQuestObject.GetComponent<SubQuest>().ChangeText(subQuestText.Value);
@@ -132,6 +136,8 @@ namespace WelcomeRoom.QuestManager
             }
 
         }
+
+
         private void OnEnable()
         {
             ReadQuestXML();

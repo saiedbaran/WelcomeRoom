@@ -143,7 +143,7 @@ Transform:
   - {fileID: 7423433577890907706}
   - {fileID: 3767769229584558555}
   - {fileID: 9068131771219359702}
-  - {fileID: 5668781849237567587}
+  - {fileID: 6997095087402895937}
   - {fileID: 833409410214997402}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -392,7 +392,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &833409410214997402
 Transform:
   m_ObjectHideFlags: 0
@@ -736,7 +736,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3cfde277fa5eb2148b94f9ae80e3816b, type: 3}
---- !u!4 &5668781849237567587 stripped
+--- !u!4 &6997095087402895937 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3436567462898530099, guid: 3cfde277fa5eb2148b94f9ae80e3816b,
     type: 3}

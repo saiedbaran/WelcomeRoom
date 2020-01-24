@@ -12,7 +12,7 @@ namespace WelcomeRoom.QuestManager
         public GameObject moreInformation;
         public override bool IsDone()
         {
-            return true;
+            return false;
         }
 
         public override void setPrefab()
