@@ -7,11 +7,12 @@ namespace WelcomeRoom.QuestManager
 {
     public class SubQuest : Quest
     {
+        public GameObject finishLine;
         [Header("(i) logo object")]
         public GameObject moreInformation;
         public override bool IsDone()
         {
-            return false;
+            return true;
         }
 
         public override void setPrefab()

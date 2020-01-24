@@ -58,10 +58,6 @@ namespace WelcomeRoom.QuestManager
                 mainQuestObject.GetComponent<MainQuest>().QuestText = Qtext;
                 mainQuestObject.GetComponent<MainQuest>().ChangeText(Qtext);
 
-                LampMethod(mainQuestObject);
-
-                MainQuestObjects.Add(mainQuestObject);
-
                 foreach (var subQuestText in mainQuestText.Elements())
                 {
                     GameObject subQuestObject = Instantiate(SubQuestBody);
@@ -77,10 +73,14 @@ namespace WelcomeRoom.QuestManager
 
                     if (subQuestText.Attribute("Key")?.Value == "i") { subQuestObject.GetComponent<SubQuest>().moreInformation.SetActive(true); }
 
-                    mainQuestObject.GetComponent<MainQuest>().subQuests.Add(subQuestObject);
+                    mainQuestObject.GetComponent<MainQuest>().subQuests.Add(subQuestObject.GetComponent<SubQuest>());
 
                     _SuboffsetNum = _SuboffsetNum + 1;
                 }
+
+                LampMethod(mainQuestObject);
+
+                MainQuestObjects.Add(mainQuestObject);
 
                 _mainoffsetNum = _mainoffsetNum + _SuboffsetNum;
 
@@ -109,6 +109,7 @@ namespace WelcomeRoom.QuestManager
                     _lamp.transform.rotation = _Quest.GetComponent<MainQuest>().LampPlaceHolder.transform.rotation;
                 }
             }
+
             if (_Quest.GetComponent<SubQuest>())
             {
                 if (_Quest.GetComponent<SubQuest>().IsDone())
@@ -118,6 +119,7 @@ namespace WelcomeRoom.QuestManager
                     _lamp.transform.position = _Quest.GetComponent<SubQuest>().LampPlaceHolder.transform.position;
                     _lamp.transform.localScale = _Quest.GetComponent<SubQuest>().LampPlaceHolder.transform.localScale;
                     _lamp.transform.rotation = _Quest.GetComponent<SubQuest>().LampPlaceHolder.transform.rotation;
+                    _Quest.GetComponent<SubQuest>().finishLine.SetActive(true);
                 }
                 else
                 {

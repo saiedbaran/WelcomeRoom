@@ -8,7 +8,7 @@ namespace WelcomeRoom.QuestManager
     public abstract class Quest : MonoBehaviour
     {
         public GameObject questPrefab;
-        public List<GameObject> subQuests = new List<GameObject>();
+        public List<Quest> subQuests = new List<Quest>();
 
         public string QuestText { get; set; }
 
