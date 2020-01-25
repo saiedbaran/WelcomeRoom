@@ -141,6 +141,7 @@ namespace WelcomeRoom.QuestManager
         private void OnEnable()
         {
             ReadQuestXML();
+            DataObjectRoot.gameObject.SetActive(false);
         }
 
         private void OnDisable()
