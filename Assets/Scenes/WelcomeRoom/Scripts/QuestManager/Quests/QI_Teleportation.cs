@@ -25,6 +25,13 @@ namespace WelcomeRoom.QuestManager
 
         void Update()
         {
+            if (Helpers.Length == 0)
+            {
+                foreach (var helper in Helpers)
+                {
+                    helper.gameObject.SetActive(true);
+                }
+            }
             if (teleportAction.changed)
             {
                 QuestDone();
