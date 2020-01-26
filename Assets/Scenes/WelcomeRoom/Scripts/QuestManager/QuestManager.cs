@@ -69,13 +69,20 @@ namespace WelcomeRoom.QuestManager
                     subQuestObject.ActivateLamp();
                     mainQuestObject.AddSubQuest(subQuestObject);
 
+
                     subQuestOffsetCount++;
                 }
+
+                foreach (var subquest in mainQuestObject.SubQuests)
+                {
+                    subquest.IsActive = false;
+                }
+
                 mainQuestPosition += MQBodyOffset + SQBodyOffset * subQuestOffsetCount;
-
                 mainQuests.Add(mainQuestObject);
-            }
 
+            }
+            mainQuests[0].SubQuests[0].IsActive = true;
         }
 
         private static T InstantiateQuestObject<T>(GameObject questPrefab, Vector3 position, Transform parent = null)

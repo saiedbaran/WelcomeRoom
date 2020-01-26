@@ -14,7 +14,7 @@ namespace WelcomeRoom.QuestManager
         public TextMeshPro Textfield;
         public UnityEvent OnQuestFinished = new UnityEvent();
 
-        protected List<Quest> SubQuests = new List<Quest>();
+        public List<Quest> SubQuests = new List<Quest>();
 
         public string Text { get; set; }
 
