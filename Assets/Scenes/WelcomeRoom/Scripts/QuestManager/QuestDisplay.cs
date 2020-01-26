@@ -10,7 +10,7 @@ namespace WelcomeRoom.QuestManager
     {
         [SerializeField] private Quest quest;
 
-        private void Start()
+        private void OnEnable()
         {
             if (quest == null)
                 return;

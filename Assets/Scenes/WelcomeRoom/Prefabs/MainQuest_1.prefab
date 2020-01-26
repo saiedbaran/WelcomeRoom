@@ -171,7 +171,6 @@ GameObject:
   - component: {fileID: 2002732215664360575}
   - component: {fileID: 4582857589588138600}
   - component: {fileID: 5935276052320695429}
-  - component: {fileID: 6741664823976276851}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -363,19 +362,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   m_maskType: 0
---- !u!114 &6741664823976276851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2246956255858508052}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a48ada74cabe56640a4d8bb7ff4a54fd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quest: {fileID: -5246177337418474991}
 --- !u!1 &2634236174952745767
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,6 +520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ActiveLamp: {fileID: 7896869311456613354}
   DeactiveLamp: {fileID: 8287669512518763667}
+  Textfield: {fileID: 5935276052320695429}
   OnQuestFinished:
     m_PersistentCalls:
       m_Calls: []
