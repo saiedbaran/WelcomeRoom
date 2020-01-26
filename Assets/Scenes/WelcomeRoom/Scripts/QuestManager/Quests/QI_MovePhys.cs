@@ -11,10 +11,15 @@ namespace WelcomeRoom.QuestManager
         Vector3 PrevCamerapostion;
         int runCycle;
         public float SumDistance = 0f;
+        public QI_MovePhys_Helper[] Helpers;
         void Start()
         {
-            //iniCameraPosition = Camera.main.transform.position;
             PrevCamerapostion = Camera.main.transform.position;
+            Helpers = FindObjectsOfType<QI_MovePhys_Helper>();
+            foreach (var helper in Helpers)
+            {
+                helper.HelperObject.SetActive(true);
+            }
         }
 
         void Update()
@@ -23,11 +28,20 @@ namespace WelcomeRoom.QuestManager
             PrevCamerapostion = Camera.main.transform.position;
             if (SumDistance > MovementThreshold)
             {
-                Debug.Log("Ok, you walked enough!!!");
-                GetComponent<SubQuest>().isFinished = true;
-                GetComponent<SubQuest>().IsDone();
-                Destroy(this);
+                QuestDone();
             }
+        }
+
+        private void QuestDone()
+        {
+            Debug.Log("Ok, you walked enough!!!");
+            GetComponent<SubQuest>().isFinished = true;
+            GetComponent<SubQuest>().IsDone();
+            foreach (var helper in Helpers)
+            {
+                Destroy(helper.gameObject);
+            }
+            Destroy(this);
         }
     }
 }
