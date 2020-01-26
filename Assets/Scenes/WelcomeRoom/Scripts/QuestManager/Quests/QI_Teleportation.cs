@@ -19,7 +19,7 @@ namespace WelcomeRoom.QuestManager
             Helpers = FindObjectsOfType<QI_Teleportation_Helper>();
             foreach (var helper in Helpers)
             {
-                helper.gameObject.SetActive(true);
+                helper.HelperObject.SetActive(true);
             }
         }
 
@@ -27,9 +27,10 @@ namespace WelcomeRoom.QuestManager
         {
             if (Helpers.Length == 0)
             {
+                Helpers = FindObjectsOfType<QI_Teleportation_Helper>();
                 foreach (var helper in Helpers)
                 {
-                    helper.gameObject.SetActive(true);
+                    helper.HelperObject.SetActive(true);
                 }
             }
             if (teleportAction.changed)
