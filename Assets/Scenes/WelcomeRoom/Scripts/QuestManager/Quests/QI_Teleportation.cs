@@ -10,26 +10,22 @@ namespace WelcomeRoom.QuestManager
 {
     public class QI_Teleportation : MonoBehaviour
     {
-        public SteamVR_Action_Boolean teleportAction;
+        public SteamVR_Action_Boolean teleportAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("Teleport");
         private TeleportMarkerBase teleportingToMarker;
-        // Start is called before the first frame update
         void Start()
         {
             teleportAction = Teleport.instance.teleportAction;
         }
 
-        // Update is called once per frame
         void Update()
         {
-            //if (teleportingToMarker.ShouldMovePlayer()) { Debug.Log("We should teleport@@@"); }
-
-            if (teleportAction.active)
+            if (teleportAction.changed)
             {
-                Debug.Log("Teleport Action Active!!!");
+                Debug.Log("Teleport Action Changed!!!");
+                GetComponent<SubQuest>().isFinished = true;
+                GetComponent<SubQuest>().IsDone();
+                Destroy(this);
             }
-
-            if (teleportAction.changed) { Debug.Log("changed"); }
-            //teleportAction.onStateDown
         }
 
     }
