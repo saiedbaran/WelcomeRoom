@@ -1,11 +1,14 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Xml.Linq;
 using UnityEngine;
+using TMPro;
 
 
 namespace WelcomeRoom.QuestManager
 {
+    public interface IQuest { }
     [ExecuteInEditMode]
     public class QuestManager : MonoBehaviour
     {
@@ -43,17 +46,24 @@ namespace WelcomeRoom.QuestManager
                 if (questText == null) { continue; }
 
                 var mainQuestObject = InstantiateQuestObject<MainQuest>(MainQuestBody, mainQuestPosition, DataObjectRoot.transform);
-                mainQuestObject.name = mainQuestObject.Text = questText;
+                mainQuestObject.name = mainQuestObject.GetComponentInChildren<TextMeshPro>().text = questText;
                 mainQuestObject.ActivateLamp();
 
                 foreach (var subQuestText in mainQuestText.Elements())
                 {
                     var subQuestPosition = subQuestOffsetCount * SQBodyOffset;
                     var subQuestObject = InstantiateQuestObject<SubQuest>(SubQuestBody, subQuestPosition, mainQuestObject.transform);
-                    subQuestObject.name = subQuestObject.Text = subQuestText.Value;
+                    subQuestObject.name = subQuestObject.GetComponentInChildren<TextMeshPro>().text = subQuestText.Value;
 
                     if (subQuestText.Attribute("Key")?.Value == "i")
                         subQuestObject.HasAdditionalInformation = true;
+
+                    if (subQuestText.Attribute("Script")?.Value != null)
+                    {
+                        Debug.Log("Script Found!!!");
+                        var _script = Type.GetType(subQuestText.Attribute("Script")?.Value);
+                        subQuestObject.gameObject.AddComponent(_script);
+                    }
 
                     subQuestObject.ActivateLamp();
                     mainQuestObject.AddSubQuest(subQuestObject);

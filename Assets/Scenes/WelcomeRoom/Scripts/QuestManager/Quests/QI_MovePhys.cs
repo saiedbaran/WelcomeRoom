@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace WelcomeRoom.QuestManager
 {
-    public class QI_MovePhys : MonoBehaviour
+    public class QI_MovePhys : MonoBehaviour, IQuest
     {
         [SerializeField] float MovementThreshold;
         Vector3 iniCameraPosition;

@@ -3,7 +3,7 @@
     <QuestList>
 
         <MainQuest Key="Move inside the room">
-            <SubQuest>Try to Move Physically</SubQuest>
+            <SubQuest Script="WelcomeRoom.QuestManager.QI_MovePhys">Try to Move Physically</SubQuest>
             <SubQuest Key="i">Learn Teleportation system</SubQuest>
         </MainQuest>
         <MainQuest Key="Wear the SmartWatch">
