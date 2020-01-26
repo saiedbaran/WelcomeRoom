@@ -46,21 +46,21 @@ namespace WelcomeRoom.QuestManager
                 if (questText == null) { continue; }
 
                 var mainQuestObject = InstantiateQuestObject<MainQuest>(MainQuestBody, mainQuestPosition, DataObjectRoot.transform);
-                mainQuestObject.name = mainQuestObject.GetComponentInChildren<TextMeshPro>().text = questText;
+                mainQuestObject.name = mainQuestObject.Textfield.text = questText;
                 mainQuestObject.ActivateLamp();
 
                 foreach (var subQuestText in mainQuestText.Elements())
                 {
                     var subQuestPosition = subQuestOffsetCount * SQBodyOffset;
                     var subQuestObject = InstantiateQuestObject<SubQuest>(SubQuestBody, subQuestPosition, mainQuestObject.transform);
-                    subQuestObject.name = subQuestObject.GetComponentInChildren<TextMeshPro>().text = subQuestText.Value;
+                    subQuestObject.name = subQuestObject.Textfield.text = subQuestText.Value;
 
                     if (subQuestText.Attribute("Key")?.Value == "i")
                         subQuestObject.HasAdditionalInformation = true;
 
                     if (subQuestText.Attribute("Script")?.Value != null)
                     {
-                        Debug.Log("Script Found!!!");
+                        //Debug.Log("Script Found!!!");
                         var _script = Type.GetType(subQuestText.Attribute("Script")?.Value);
                         subQuestObject.gameObject.AddComponent(_script);
                     }
@@ -74,7 +74,7 @@ namespace WelcomeRoom.QuestManager
 
                 mainQuests.Add(mainQuestObject);
             }
-            if (!GetComponentInParent<GameManager>()) { DataObjectRoot.SetActive(false); }
+
         }
 
         private static T InstantiateQuestObject<T>(GameObject questPrefab, Vector3 position, Transform parent = null)
@@ -87,13 +87,20 @@ namespace WelcomeRoom.QuestManager
 
         private void OnEnable()
         {
-            CleanObjects();
-            ReadQuestXml();
+            if (!GetComponentInParent<GameManager>()) { DataObjectRoot.SetActive(false); }
+            if (GetComponentInParent<GameManager>())
+            {
+                CleanObjects();
+                ReadQuestXml();
+            }
         }
 
         private void OnDisable()
         {
-            CleanObjects();
+            if (GetComponentInParent<GameManager>())
+            {
+                CleanObjects();
+            }
         }
 
         private void CleanObjects()

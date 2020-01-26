@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using TMPro;
 
 namespace WelcomeRoom.QuestManager
 {
@@ -10,6 +11,7 @@ namespace WelcomeRoom.QuestManager
         [SerializeField] private GameObject ActiveLamp;
         [SerializeField] private GameObject DeactiveLamp;
 
+        public TextMeshPro Textfield;
         public UnityEvent OnQuestFinished = new UnityEvent();
 
         protected List<Quest> SubQuests = new List<Quest>();
