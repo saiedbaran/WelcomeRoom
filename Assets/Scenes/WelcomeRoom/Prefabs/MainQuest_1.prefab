@@ -537,6 +537,7 @@ MonoBehaviour:
   OnQuestFinished:
     m_PersistentCalls:
       m_Calls: []
+  isFinished: 0
 --- !u!1 &5719609578379176974
 GameObject:
   m_ObjectHideFlags: 0

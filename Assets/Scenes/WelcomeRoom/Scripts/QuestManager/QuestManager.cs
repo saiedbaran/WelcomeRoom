@@ -44,6 +44,7 @@ namespace WelcomeRoom.QuestManager
 
                 var mainQuestObject = InstantiateQuestObject<MainQuest>(MainQuestBody, mainQuestPosition, DataObjectRoot.transform);
                 mainQuestObject.name = mainQuestObject.Text = questText;
+                mainQuestObject.ActivateLamp();
 
                 foreach (var subQuestText in mainQuestText.Elements())
                 {
@@ -54,6 +55,7 @@ namespace WelcomeRoom.QuestManager
                     if (subQuestText.Attribute("Key")?.Value == "i")
                         subQuestObject.HasAdditionalInformation = true;
 
+                    subQuestObject.ActivateLamp();
                     mainQuestObject.AddSubQuest(subQuestObject);
 
                     subQuestOffsetCount++;
@@ -62,6 +64,7 @@ namespace WelcomeRoom.QuestManager
 
                 mainQuests.Add(mainQuestObject);
             }
+            if (!GetComponentInParent<GameManager>()) { DataObjectRoot.SetActive(false); }
         }
 
         private static T InstantiateQuestObject<T>(GameObject questPrefab, Vector3 position, Transform parent = null)
@@ -75,15 +78,14 @@ namespace WelcomeRoom.QuestManager
         private void OnEnable()
         {
             ReadQuestXml();
-            DataObjectRoot.SetActive(false);
         }
 
         private void OnDisable()
         {
             foreach (var mainQuestObject in MainQuests)
             {
-                if(mainQuestObject)
-                 DestroyImmediate(mainQuestObject.gameObject); //TODO should be removed
+                if (mainQuestObject)
+                    DestroyImmediate(mainQuestObject.gameObject); //TODO should be removed
             }
         }
     }

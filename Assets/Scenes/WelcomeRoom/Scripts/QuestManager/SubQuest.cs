@@ -16,12 +16,13 @@ namespace WelcomeRoom.QuestManager
             set
             {
                 hasAdditionalInformation = value;
-                if(infoLogoObject != null) infoLogoObject.SetActive(true);
+                if (infoLogoObject != null) infoLogoObject.SetActive(true);
             }
         }
 
         public override bool IsDone()
         {
+            if (isFinished) { return true; }
             return false;
         }
     }
