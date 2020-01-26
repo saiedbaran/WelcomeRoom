@@ -18,7 +18,7 @@ namespace WelcomeRoom.QuestManager
             float diffPosition = (Camera.main.transform.position - iniCameraPosition).magnitude;
             if (diffPosition > MovementThreshold)
             {
-                Debug.Log("Ok, you walked enough!!!")
+                Debug.Log("Ok, you walked enough!!!");
                 GetComponent<SubQuest>().isFinished = true;
                 GetComponent<SubQuest>().IsDone();
                 Destroy(this);
