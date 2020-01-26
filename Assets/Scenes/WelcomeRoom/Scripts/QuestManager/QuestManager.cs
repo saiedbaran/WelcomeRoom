@@ -77,11 +77,21 @@ namespace WelcomeRoom.QuestManager
 
         private void OnEnable()
         {
+            CleanObjects();
             ReadQuestXml();
         }
 
         private void OnDisable()
         {
+            CleanObjects();
+        }
+
+        private void CleanObjects()
+        {
+            foreach (var x in GetComponentsInChildren<MainQuest>())
+            {
+                DestroyImmediate(x.gameObject);
+            }
             foreach (var mainQuestObject in MainQuests)
             {
                 if (mainQuestObject)
