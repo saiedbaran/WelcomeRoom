@@ -22,7 +22,11 @@ namespace WelcomeRoom.QuestManager
 
         public override bool IsDone()
         {
-            if (isFinished) { return true; }
+            if (isFinished)
+            {
+                OnQuestFinished.Invoke();
+                return true;
+            }
             return false;
         }
     }
