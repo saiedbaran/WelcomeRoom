@@ -19,6 +19,7 @@ namespace WelcomeRoom.QuestManager
         [SerializeField] private GameObject SubQuestBody;
         [SerializeField] private Vector3 SQBodyOffset = new Vector3(0f, -0.1f, 0f);
         [SerializeField] private GameObject DataObjectRoot;
+        [SerializeField] private GameObject Cover;
 
         private readonly List<MainQuest> mainQuests = new List<MainQuest>();
 
@@ -109,11 +110,7 @@ namespace WelcomeRoom.QuestManager
             {
                 DestroyImmediate(x.gameObject);
             }
-            foreach (var mainQuestObject in MainQuests)
-            {
-                if (mainQuestObject)
-                    DestroyImmediate(mainQuestObject.gameObject); //TODO should be removed
-            }
+            if (Cover) { Cover.transform.localRotation = Quaternion.Euler(new Vector3(0f, 0f, 90f)); }
         }
     }
 }
