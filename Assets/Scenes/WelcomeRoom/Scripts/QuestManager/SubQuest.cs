@@ -1,23 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
+﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace WelcomeRoom.QuestManager
 {
     public class SubQuest : Quest
     {
-        public GameObject finishLine;
-        [Header("(i) logo object")]
-        public GameObject moreInformation;
+        [SerializeField] private GameObject finishLine;
+
+        [SerializeField] private GameObject infoLogoObject;
+
+        private bool hasAdditionalInformation;
+        public bool HasAdditionalInformation
+        {
+            get => hasAdditionalInformation;
+            set
+            {
+                hasAdditionalInformation = value;
+                if(infoLogoObject != null) infoLogoObject.SetActive(true);
+            }
+        }
+
         public override bool IsDone()
         {
             return false;
-        }
-
-        public override void setPrefab()
-        {
-            questPrefab = GameManager.Instance.QuestManagement.GetComponent<QuestManager>().SubQuestBody;
         }
     }
 

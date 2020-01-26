@@ -1,7 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using TMPro;
+﻿using System.Linq;
 
 namespace WelcomeRoom.QuestManager
 {
@@ -10,17 +7,9 @@ namespace WelcomeRoom.QuestManager
 
         public override bool IsDone()
         {
-            foreach (var subQuest in subQuests)
-            {
-                if (!subQuest.IsDone())
-                    return false;
-            }
+            if (!SubQuests.All(subQuest => subQuest.IsDone())) return false;
+            OnQuestFinished.Invoke();
             return true;
-        }
-
-        public override void setPrefab()
-        {
-            questPrefab = GameManager.Instance.QuestManagement.GetComponent<QuestManager>().MainQuestBody;
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using WelcomeRoom.QuestManager;
 
 [ExecuteInEditMode]
 public class ProgressManager : MonoBehaviour
@@ -18,20 +19,19 @@ public class ProgressManager : MonoBehaviour
         }
     }
 
-    public List<GameObject> MainQuests = new List<GameObject>();
+    private  List<MainQuest> MainQuests = new List<MainQuest>();
+    private QuestManager QuestManager;
 
-    WelcomeRoom.QuestManager.QuestManager QuestManager;
-
-    void Update()
+    private void Update()
     {
-        QuestManager = FindObjectOfType<WelcomeRoom.QuestManager.QuestManager>();
-        if(QuestManager)
+        // Why do we need this?????
+        QuestManager = FindObjectOfType<QuestManager>();
+        if (!QuestManager) return;
+
+        MainQuests.Clear();
+        foreach(var mainQuest in QuestManager.MainQuests)
         {
-            MainQuests.Clear();
-            foreach(var mainQuest in QuestManager.MainQuestObjects)
-            {
-                MainQuests.Add(mainQuest);
-            }
+            MainQuests.Add(mainQuest);
         }
     }
 }

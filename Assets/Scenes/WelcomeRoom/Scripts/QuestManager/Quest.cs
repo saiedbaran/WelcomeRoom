@@ -1,44 +1,46 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using UnityEngine.Events;
 
 namespace WelcomeRoom.QuestManager
 {
     public abstract class Quest : MonoBehaviour
     {
-        public GameObject questPrefab;
-        public List<Quest> subQuests = new List<Quest>();
+        [Header("Status Lamp")]
+        [SerializeField] private GameObject ActiveLamp;
+        [SerializeField] private GameObject DeactiveLamp;
 
-        public string QuestText { get; set; }
+        public UnityEvent OnQuestFinished = new UnityEvent();
 
-        [SerializeField] protected Vector3 QuestOffset = Vector3.zero; // subquest (0, -0.1, 0), mainquest 0.13, 0.16
+        protected List<Quest> SubQuests = new List<Quest>();
 
-        [Header("Status")]
-        public GameObject LampPlaceHolder;
-        public GameObject ActiveLamp;
-        public GameObject DeactiveLamp;
+        public string Text { get; set; }
 
-        public bool isActive { get; set; }
+        public bool IsActive { get; set; }
 
         public abstract bool IsDone();
 
-        public void CreateQuestObject(Transform parent)
+        protected virtual void Start()
         {
-            var questObject = GameObject.Instantiate(questPrefab, parent);
-            var textComponent = questObject.GetComponentInChildren<TextMeshPro>();
-            if (textComponent == null)
-                return;
-
-            textComponent.text = QuestText;
+            ActivateLamp();
+            OnQuestFinished.AddListener(DeactivateLamp);
         }
 
-        public abstract void setPrefab();
-
-        public void ChangeText(string _QuestText)
+        public void AddSubQuest(Quest subQuest)
         {
-            var textComponent = GetComponentInChildren<TextMeshPro>();
-            textComponent.text = _QuestText;
+            SubQuests.Add(subQuest);
+        }
+
+        public void ActivateLamp()
+        {
+            if (DeactiveLamp != null) DeactiveLamp.SetActive(false);
+            if (ActiveLamp != null) ActiveLamp.SetActive(true);
+        }
+
+        public void DeactivateLamp()
+        {
+            if (DeactiveLamp != null) DeactiveLamp.SetActive(true);
+            if (ActiveLamp != null) ActiveLamp.SetActive(false);
         }
     }
 }

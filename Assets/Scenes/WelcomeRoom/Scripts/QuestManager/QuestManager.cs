@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Xml.Linq;
 using UnityEngine;
@@ -10,145 +9,81 @@ namespace WelcomeRoom.QuestManager
     [ExecuteInEditMode]
     public class QuestManager : MonoBehaviour
     {
-        [SerializeField] string QuestsPath = "Quests.xml";
-        public GameObject MainQuestBody;
-        [SerializeField] Vector3 MQBodyiniOffset = new Vector3(-0.1f, 0.13f, -0.06f);
-        [SerializeField] Vector3 MQBodyOffset = new Vector3(-0.1f, -0.13f, 0.0f);
-        public GameObject SubQuestBody;
-        [SerializeField] Vector3 SQBodyOffset = new Vector3(0f, -0.1f, 0f);
-        public GameObject DataObjectRoot;
+        [SerializeField] private string QuestsPath = "Quests";
+        [SerializeField] private GameObject MainQuestBody;
+        [SerializeField] private Vector3 MQBodyiniOffset = new Vector3(-0.1f, 0.13f, -0.06f);
+        [SerializeField] private Vector3 MQBodyOffset = new Vector3(-0.1f, -0.13f, 0.0f);
+        [SerializeField] private GameObject SubQuestBody;
+        [SerializeField] private Vector3 SQBodyOffset = new Vector3(0f, -0.1f, 0f);
+        [SerializeField] private GameObject DataObjectRoot;
 
-        // public List<string> mainQuestsList = new List<string>();
-        public List<GameObject> MainQuestObjects = new List<GameObject>();
+        private readonly List<MainQuest> mainQuests = new List<MainQuest>();
 
+        public MainQuest[] MainQuests => mainQuests.ToArray();
 
-
-        public void ModifyQuestmanager()
+        public void ReadQuestXml()
         {
-
-        }
-
-        public void ReadQuestXML()
-        {
-            // mainQuestsList.Clear();
-            MainQuestObjects.Clear();
+            mainQuests.Clear();
 
             var text = Resources.Load<TextAsset>(QuestsPath);
             if (!text)
             {
-                Debug.LogError($"QuestManager::ReadQuestXML: Unable to load language file {QuestsPath}");
+                Debug.LogError($"QuestManager::ReadQuestXML: Unable to load quest file {QuestsPath}");
                 return;
             }
 
             var doc = XDocument.Load(new MemoryStream(text.bytes));
 
-            int _mainoffsetNum = 0;
-
+            var mainQuestPosition = MQBodyiniOffset;
             foreach (var mainQuestText in doc.Descendants("MainQuest"))
             {
-                int _SuboffsetNum = 0;
-                var Qtext = mainQuestText.Attribute("Key")?.Value;
+                var subQuestOffsetCount = 0;
 
-                if (Qtext == null) { continue; }
+                var questText = mainQuestText.Attribute("Key")?.Value;
+                if (questText == null) { continue; }
 
-                GameObject mainQuestObject = Instantiate(MainQuestBody);
-
-                mainQuestObject.transform.parent = DataObjectRoot.transform;
-                mainQuestObject.transform.localScale = new Vector3(1, 1, 1);
-                mainQuestObject.transform.localPosition = MQBodyiniOffset + MQBodyOffset * _mainoffsetNum;
-                mainQuestObject.name = Qtext;
-
-                mainQuestObject.GetComponent<MainQuest>().QuestText = Qtext;
-                mainQuestObject.GetComponent<MainQuest>().ChangeText(Qtext);
+                var mainQuestObject = InstantiateQuestObject<MainQuest>(MainQuestBody, mainQuestPosition, DataObjectRoot.transform);
+                mainQuestObject.name = mainQuestObject.Text = questText;
 
                 foreach (var subQuestText in mainQuestText.Elements())
                 {
-                    GameObject subQuestObject = Instantiate(SubQuestBody);
+                    var subQuestPosition = subQuestOffsetCount * SQBodyOffset;
+                    var subQuestObject = InstantiateQuestObject<SubQuest>(SubQuestBody, subQuestPosition, mainQuestObject.transform);
+                    subQuestObject.name = subQuestObject.Text = subQuestText.Value;
 
-                    subQuestObject.transform.parent = mainQuestObject.transform;
-                    subQuestObject.transform.localScale = new Vector3(1, 1, 1);
-                    subQuestObject.transform.localPosition = _SuboffsetNum * SQBodyOffset;
-                    subQuestObject.name = subQuestText.Value;
+                    if (subQuestText.Attribute("Key")?.Value == "i")
+                        subQuestObject.HasAdditionalInformation = true;
 
-                    subQuestObject.GetComponent<SubQuest>().QuestText = subQuestText.Value;
-                    subQuestObject.GetComponent<SubQuest>().ChangeText(subQuestText.Value);
+                    mainQuestObject.AddSubQuest(subQuestObject);
 
-                    LampMethod(subQuestObject);
-
-                    if (subQuestText.Attribute("Key")?.Value == "i") { subQuestObject.GetComponent<SubQuest>().moreInformation.SetActive(true); }
-
-                    mainQuestObject.GetComponent<MainQuest>().subQuests.Add(subQuestObject.GetComponent<SubQuest>());
-
-                    _SuboffsetNum = _SuboffsetNum + 1;
+                    subQuestOffsetCount++;
                 }
+                mainQuestPosition += MQBodyOffset + SQBodyOffset * subQuestOffsetCount;
 
-                LampMethod(mainQuestObject);
-
-                MainQuestObjects.Add(mainQuestObject);
-
-                _mainoffsetNum = _mainoffsetNum + _SuboffsetNum;
-
+                mainQuests.Add(mainQuestObject);
             }
         }
 
-        public void LampMethod(GameObject _Quest)
+        private static T InstantiateQuestObject<T>(GameObject questPrefab, Vector3 position, Transform parent = null)
         {
-            if (_Quest.GetComponent<MainQuest>())
-            {
-                if (_Quest.GetComponent<MainQuest>().IsDone())
-                {
-                    GameObject _lamp = Instantiate(_Quest.GetComponent<MainQuest>().DeactiveLamp);
-                    _lamp.transform.parent = _Quest.transform;
-                    _lamp.transform.position = _Quest.GetComponent<MainQuest>().LampPlaceHolder.transform.position;
-                    _lamp.transform.localScale = _Quest.GetComponent<MainQuest>().LampPlaceHolder.transform.localScale;
-                    _lamp.transform.rotation = _Quest.GetComponent<MainQuest>().LampPlaceHolder.transform.rotation;
-                    Debug.Log("Task done !!!");
-                }
-                else
-                {
-                    GameObject _lamp = Instantiate(_Quest.GetComponent<MainQuest>().ActiveLamp);
-                    _lamp.transform.parent = _Quest.transform;
-                    _lamp.transform.position = _Quest.GetComponent<MainQuest>().LampPlaceHolder.transform.position;
-                    _lamp.transform.localScale = _Quest.GetComponent<MainQuest>().LampPlaceHolder.transform.localScale;
-                    _lamp.transform.rotation = _Quest.GetComponent<MainQuest>().LampPlaceHolder.transform.rotation;
-                }
-            }
-
-            if (_Quest.GetComponent<SubQuest>())
-            {
-                if (_Quest.GetComponent<SubQuest>().IsDone())
-                {
-                    GameObject _lamp = Instantiate(_Quest.GetComponent<SubQuest>().DeactiveLamp);
-                    _lamp.transform.parent = _Quest.transform;
-                    _lamp.transform.position = _Quest.GetComponent<SubQuest>().LampPlaceHolder.transform.position;
-                    _lamp.transform.localScale = _Quest.GetComponent<SubQuest>().LampPlaceHolder.transform.localScale;
-                    _lamp.transform.rotation = _Quest.GetComponent<SubQuest>().LampPlaceHolder.transform.rotation;
-                    _Quest.GetComponent<SubQuest>().finishLine.SetActive(true);
-                }
-                else
-                {
-                    GameObject _lamp = Instantiate(_Quest.GetComponent<SubQuest>().ActiveLamp);
-                    _lamp.transform.parent = _Quest.transform;
-                    _lamp.transform.position = _Quest.GetComponent<SubQuest>().LampPlaceHolder.transform.position;
-                    _lamp.transform.localScale = _Quest.GetComponent<SubQuest>().LampPlaceHolder.transform.localScale;
-                    _lamp.transform.rotation = _Quest.GetComponent<SubQuest>().LampPlaceHolder.transform.rotation;
-                }
-            }
-
+            var mainQuestObject = Instantiate(questPrefab, parent);
+            mainQuestObject.transform.localScale = Vector3.one;
+            mainQuestObject.transform.localPosition = position;
+            return mainQuestObject.GetComponent<T>();
         }
-
 
         private void OnEnable()
         {
-            ReadQuestXML();
-            DataObjectRoot.gameObject.SetActive(false);
+            ReadQuestXml();
+            DataObjectRoot.SetActive(false);
         }
 
         private void OnDisable()
         {
-            foreach (var x in MainQuestObjects)
+            foreach (var mainQuestObject in MainQuests)
             {
-                DestroyImmediate(x.gameObject); //TODO should be romoved
+                if(mainQuestObject)
+                 DestroyImmediate(mainQuestObject.gameObject); //TODO should be removed
             }
         }
     }
