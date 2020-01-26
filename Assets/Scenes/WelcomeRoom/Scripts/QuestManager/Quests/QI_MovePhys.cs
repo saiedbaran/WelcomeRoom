@@ -12,6 +12,8 @@ namespace WelcomeRoom.QuestManager
         int runCycle;
         public float SumDistance = 0f;
         public QI_MovePhys_Helper[] Helpers;
+
+        private List<Quest> subquestList = new List<Quest>();
         void Start()
         {
             PrevCamerapostion = Camera.main.transform.position;
@@ -24,11 +26,14 @@ namespace WelcomeRoom.QuestManager
 
         void Update()
         {
-            SumDistance += (Camera.main.transform.position - PrevCamerapostion).magnitude;
-            PrevCamerapostion = Camera.main.transform.position;
-            if (SumDistance > MovementThreshold)
+            if (gameObject.GetComponent<SubQuest>().IsActive)
             {
-                QuestDone();
+                SumDistance += (Camera.main.transform.position - PrevCamerapostion).magnitude;
+                PrevCamerapostion = Camera.main.transform.position;
+                if (SumDistance > MovementThreshold)
+                {
+                    QuestDone();
+                }
             }
         }
 
@@ -37,11 +42,27 @@ namespace WelcomeRoom.QuestManager
             Debug.Log("Ok, you walked enough!!!");
             GetComponent<SubQuest>().isFinished = true;
             GetComponent<SubQuest>().IsDone();
+
+            ActiveNextQuest();
+
             foreach (var helper in Helpers)
             {
                 Destroy(helper.gameObject);
             }
             Destroy(this);
+        }
+
+        public void ActiveNextQuest()
+        {
+            subquestList = GetComponentInParent<MainQuest>().SubQuests;
+            foreach (var quest in subquestList)
+            {
+                if (!quest.IsActive)
+                {
+                    quest.IsActive = true;
+                    return;
+                }
+            }
         }
     }
 }

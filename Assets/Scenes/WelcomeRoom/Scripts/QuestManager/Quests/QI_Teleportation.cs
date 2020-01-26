@@ -13,6 +13,8 @@ namespace WelcomeRoom.QuestManager
         public SteamVR_Action_Boolean teleportAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("Teleport");
         private TeleportMarkerBase teleportingToMarker;
         public QI_Teleportation_Helper[] Helpers;
+
+        private List<Quest> subquestList = new List<Quest>();
         void Start()
         {
             teleportAction = Teleport.instance.teleportAction;
@@ -25,17 +27,20 @@ namespace WelcomeRoom.QuestManager
 
         void Update()
         {
-            if (Helpers.Length == 0)
+            if (gameObject.GetComponent<SubQuest>().IsActive)
             {
-                Helpers = FindObjectsOfType<QI_Teleportation_Helper>();
-                foreach (var helper in Helpers)
+                if (Helpers.Length == 0)
                 {
-                    helper.HelperObject.SetActive(true);
+                    Helpers = FindObjectsOfType<QI_Teleportation_Helper>();
+                    foreach (var helper in Helpers)
+                    {
+                        helper.HelperObject.SetActive(true);
+                    }
                 }
-            }
-            if (teleportAction.changed)
-            {
-                QuestDone();
+                if (teleportAction.changed)
+                {
+                    QuestDone();
+                }
             }
         }
 
@@ -44,11 +49,27 @@ namespace WelcomeRoom.QuestManager
             Debug.Log("Teleport Action Changed!!!");
             GetComponent<SubQuest>().isFinished = true;
             GetComponent<SubQuest>().IsDone();
+
+            ActiveNextQuest();
+
             foreach (var helper in Helpers)
             {
                 Destroy(helper.gameObject);
             }
             Destroy(this);
+        }
+
+        public void ActiveNextQuest()
+        {
+            subquestList = GetComponentInParent<MainQuest>().SubQuests;
+            foreach (var quest in subquestList)
+            {
+                if (!quest.IsActive)
+                {
+                    quest.IsActive = true;
+                    return;
+                }
+            }
         }
     }
 }
