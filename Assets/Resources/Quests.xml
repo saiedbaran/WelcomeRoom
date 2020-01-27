@@ -8,7 +8,7 @@
         </MainQuest>
         <MainQuest Key="Open the Quest Manager">
             <SubQuest Key="i" Script="WelcomeRoom.QuestManager.QI_LearnGrab">Learn Grab interaction</SubQuest>
-            <SubQuest>Take the QuestManager object and throw it</SubQuest>
+            <SubQuest Script="WelcomeRoom.QuestManager.QI_GrabQM">Take the QuestManager object and throw it</SubQuest>
         </MainQuest>
 
     </QuestList>
