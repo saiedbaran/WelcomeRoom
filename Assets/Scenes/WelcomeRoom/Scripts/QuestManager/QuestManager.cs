@@ -92,6 +92,7 @@ namespace WelcomeRoom.QuestManager
         {
             mainQuests[0].SubQuests[0].IsActive = true;
             mainQuests[0].SubQuests[0].ActivateLamp();
+            mainQuests[0].IsActive = true;
             mainQuests[0].ActivateLamp();
         }
 
