@@ -32,7 +32,6 @@ namespace WelcomeRoom.QuestManager
                         helper.HelperObject.SetActive(true);
                     }
                 }
-                //if (GrabAction.GetStateDown(Pose.inputSource))
                 if (GrabAction.GetStateDown(SteamVR_Input_Sources.Any))
                 {
                     QuestDone();
@@ -45,8 +44,6 @@ namespace WelcomeRoom.QuestManager
             Debug.Log("Trigger Pressed!!!");
             GetComponent<SubQuest>().isFinished = true;
             GetComponent<SubQuest>().IsDone();
-
-            //ActiveNextQuest();
 
             foreach (var helper in Helpers)
             {
