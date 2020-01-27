@@ -6,7 +6,7 @@ namespace WelcomeRoom.QuestManager
 {
     public class QI_MovePhys : MonoBehaviour, IQuest
     {
-        [SerializeField] float MovementThreshold = 4f;
+        [SerializeField] float MovementThreshold = 10f;
         Vector3 iniCameraPosition;
         Vector3 PrevCamerapostion;
         int runCycle;
