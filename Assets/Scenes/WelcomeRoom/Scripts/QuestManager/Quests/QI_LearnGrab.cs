@@ -13,6 +13,11 @@ namespace WelcomeRoom.QuestManager
         void Start()
         {
             Pose = GetComponent<SteamVR_Behaviour_Pose>();
+            Helpers = FindObjectsOfType<QI_LearnGrab_Helper>();
+            foreach (var helper in Helpers)
+            {
+                helper.HelperObject.SetActive(true);
+            }
         }
 
         void Update()
