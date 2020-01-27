@@ -26,18 +26,21 @@ namespace WelcomeRoom.QuestManager
                 if (Helpers.Length == 0)
                 {
                     Helpers = FindObjectsOfType<QI_GrabQM_Helper>();
+                }
+                else
+                {
                     foreach (var helper in Helpers)
                     {
                         helper.HelperObject.SetActive(true);
                     }
                 }
-                // if (GrabAction.GetStateDown(SteamVR_Input_Sources.Any))
-                // {
-                //     QuestDone();
-                // }
             }
+            // if (GrabAction.GetStateDown(SteamVR_Input_Sources.Any))
+            // {
+            //     QuestDone();
+            // }
         }
     }
-
 }
+
 
