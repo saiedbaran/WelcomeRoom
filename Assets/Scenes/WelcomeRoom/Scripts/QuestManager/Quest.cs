@@ -25,7 +25,7 @@ namespace WelcomeRoom.QuestManager
 
         protected virtual void Start()
         {
-            ActivateLamp();
+            //DeactivateLamp();
             OnQuestFinished.AddListener(DeactivateLamp);
         }
 

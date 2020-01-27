@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class QuestManagerInvoke : MonoBehaviour
 {
-    [SerializeField] GameObject QuestManager;
+    //[SerializeField] GameObject QuestManager;
     [SerializeField] GameObject Parent;
     [SerializeField] Vector3 Position, Rotation, Scale;
 
@@ -18,6 +18,7 @@ public class QuestManagerInvoke : MonoBehaviour
     {
         if (!gameObject.GetComponentInChildren<QuestManagerInstance>())
         {
+            GameObject QuestManager = GameManager.Instance.QuestManagement;
             GameObject questManager = Instantiate(QuestManager) as GameObject;
             questManager.SetActive(true);
             questManager.transform.parent = Parent.transform;

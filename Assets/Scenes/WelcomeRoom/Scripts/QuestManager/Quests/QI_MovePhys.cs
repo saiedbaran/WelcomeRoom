@@ -60,6 +60,7 @@ namespace WelcomeRoom.QuestManager
                 if (!quest.IsActive)
                 {
                     quest.IsActive = true;
+                    quest.ActivateLamp();
                     return;
                 }
             }

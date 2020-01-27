@@ -25,6 +25,7 @@ namespace WelcomeRoom.QuestManager
             if (isFinished)
             {
                 OnQuestFinished.Invoke();
+                //GetComponentInParent<MainQuest>().IsDone();
                 return true;
             }
             return false;
