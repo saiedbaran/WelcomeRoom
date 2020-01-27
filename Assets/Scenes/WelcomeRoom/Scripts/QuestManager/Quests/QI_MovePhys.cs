@@ -12,8 +12,6 @@ namespace WelcomeRoom.QuestManager
         int runCycle;
         public float SumDistance = 0f;
         public QI_MovePhys_Helper[] Helpers;
-
-        private List<Quest> subquestList = new List<Quest>();
         void Start()
         {
             PrevCamerapostion = Camera.main.transform.position;
@@ -43,27 +41,11 @@ namespace WelcomeRoom.QuestManager
             GetComponent<SubQuest>().isFinished = true;
             GetComponent<SubQuest>().IsDone();
 
-            ActiveNextQuest();
-
             foreach (var helper in Helpers)
             {
                 Destroy(helper.gameObject);
             }
             Destroy(this);
-        }
-
-        public void ActiveNextQuest()
-        {
-            subquestList = GetComponentInParent<MainQuest>().SubQuests;
-            foreach (var quest in subquestList)
-            {
-                if (!quest.IsActive)
-                {
-                    quest.IsActive = true;
-                    quest.ActivateLamp();
-                    return;
-                }
-            }
         }
     }
 }

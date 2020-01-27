@@ -17,6 +17,7 @@ namespace WelcomeRoom.QuestManager
                     foreach (var subquest in mainquest.GetComponentsInChildren<SubQuest>())
                     {
                         subquest.isFinished = GameManager.Instance.QuestManagement.GetComponent<QuestManager>().MainQuests[i].SubQuests[j].isFinished;
+                        subquest.IsActive = GameManager.Instance.QuestManagement.GetComponent<QuestManager>().MainQuests[i].SubQuests[j].IsActive;
                         subquest.IsDone();
                         j++;
                     }
