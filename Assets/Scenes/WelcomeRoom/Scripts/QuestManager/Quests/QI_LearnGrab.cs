@@ -9,7 +9,7 @@ namespace WelcomeRoom.QuestManager
     {
         public QI_LearnGrab_Helper[] Helpers;
         public SteamVR_Action_Boolean GrabAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("GrabPinch");
-        public SteamVR_Behaviour_Pose Pose;
+        private SteamVR_Behaviour_Pose Pose = null;
         void Start()
         {
             Pose = GetComponent<SteamVR_Behaviour_Pose>();
@@ -32,7 +32,8 @@ namespace WelcomeRoom.QuestManager
                         helper.HelperObject.SetActive(true);
                     }
                 }
-                if (GrabAction.GetStateDown(Pose.inputSource))
+                //if (GrabAction.GetStateDown(Pose.inputSource))
+                if (GrabAction.GetStateDown(SteamVR_Input_Sources.Any))
                 {
                     QuestDone();
                 }
