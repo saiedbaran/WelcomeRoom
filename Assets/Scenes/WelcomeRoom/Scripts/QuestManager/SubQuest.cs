@@ -26,14 +26,14 @@ namespace WelcomeRoom.QuestManager
             if (isFinished)
             {
                 OnQuestFinished.Invoke();
-                ActiveNextQuest();
+                ActiveNextSubQuest();
                 GetComponentInParent<MainQuest>().IsDone();
                 return true;
             }
             return false;
         }
 
-        public void ActiveNextQuest()
+        public void ActiveNextSubQuest()
         {
             var subquestList = GetComponentInParent<MainQuest>().SubQuests;
             foreach (var quest in subquestList)
