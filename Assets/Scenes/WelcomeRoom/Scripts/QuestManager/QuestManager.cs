@@ -76,13 +76,23 @@ namespace WelcomeRoom.QuestManager
                 foreach (var subquest in mainQuestObject.SubQuests)
                 {
                     subquest.IsActive = false;
+                    subquest.DeactivateLamp();
                 }
 
                 mainQuestPosition += MQBodyOffset + SQBodyOffset * subQuestOffsetCount;
+                mainQuestObject.DeactivateLamp();
                 mainQuests.Add(mainQuestObject);
 
             }
+
+            Active_FirstQuest();
+        }
+
+        private void Active_FirstQuest()
+        {
             mainQuests[0].SubQuests[0].IsActive = true;
+            mainQuests[0].SubQuests[0].ActivateLamp();
+            mainQuests[0].ActivateLamp();
         }
 
         private static T InstantiateQuestObject<T>(GameObject questPrefab, Vector3 position, Transform parent = null)
@@ -95,8 +105,11 @@ namespace WelcomeRoom.QuestManager
 
         private void OnEnable()
         {
-            if (!GetComponentInParent<GameManager>()) { DataObjectRoot.SetActive(false); }
-            if (GetComponentInParent<GameManager>())
+            if (!GetComponentInParent<GameManager>())
+            {
+                DataObjectRoot.SetActive(false);
+            }
+            else
             {
                 CleanObjects();
                 ReadQuestXml();
