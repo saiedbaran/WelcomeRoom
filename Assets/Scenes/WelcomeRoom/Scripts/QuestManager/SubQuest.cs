@@ -10,6 +10,7 @@ namespace WelcomeRoom.QuestManager
         [SerializeField] private GameObject infoLogoObject;
 
         private bool hasAdditionalInformation;
+
         public bool HasAdditionalInformation
         {
             get => hasAdditionalInformation;
@@ -25,10 +26,25 @@ namespace WelcomeRoom.QuestManager
             if (isFinished)
             {
                 OnQuestFinished.Invoke();
-                //GetComponentInParent<MainQuest>().IsDone();
+                ActiveNextQuest();
+                GetComponentInParent<MainQuest>().IsDone();
                 return true;
             }
             return false;
+        }
+
+        public void ActiveNextQuest()
+        {
+            var subquestList = GetComponentInParent<MainQuest>().SubQuests;
+            foreach (var quest in subquestList)
+            {
+                if (!quest.IsActive)
+                {
+                    quest.IsActive = true;
+                    quest.ActivateLamp();
+                    return;
+                }
+            }
         }
     }
 
