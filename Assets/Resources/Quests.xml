@@ -7,7 +7,7 @@
             <SubQuest Key="i" Script="WelcomeRoom.QuestManager.QI_Teleportation">Learn Teleportation system</SubQuest>
         </MainQuest>
         <MainQuest Key="Open the Quest Manager">
-            <SubQuest Key="i">Learn Grab interaction</SubQuest>
+            <SubQuest Key="i" Script="WelcomeRoom.QuestManager.QI_LearnGrab">Learn Grab interaction</SubQuest>
             <SubQuest>Take the QuestManager object and throw it</SubQuest>
         </MainQuest>
 
