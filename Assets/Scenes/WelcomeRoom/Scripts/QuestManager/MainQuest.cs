@@ -21,20 +21,20 @@ namespace WelcomeRoom.QuestManager
                 {
                     quest.IsActive = true;
                     quest.ActivateLamp();
-                    ActiveNextSubQuest();
+                    ActiveNextSubQuest(quest);
                     return;
                 }
             }
         }
 
-        public void ActiveNextSubQuest()
+        public void ActiveNextSubQuest(MainQuest mquest)
         {
-            foreach (var quest in SubQuests)
+            foreach (var subquest in mquest.SubQuests)
             {
-                if (!quest.IsActive)
+                if (!subquest.IsActive)
                 {
-                    quest.IsActive = true;
-                    quest.ActivateLamp();
+                    subquest.IsActive = true;
+                    subquest.ActivateLamp();
                     return;
                 }
             }
