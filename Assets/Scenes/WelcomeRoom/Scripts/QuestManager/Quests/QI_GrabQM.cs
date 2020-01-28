@@ -1,6 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.Events;
+using Valve.VR.InteractionSystem;
 
 namespace WelcomeRoom.QuestManager
 {
@@ -17,6 +20,7 @@ namespace WelcomeRoom.QuestManager
                     helper.HelperObject.SetActive(true);
                 }
             }
+
         }
 
         void Update()
@@ -40,6 +44,20 @@ namespace WelcomeRoom.QuestManager
             //     QuestDone();
             // }
         }
+
+        public void QuestDone()
+        {
+            Debug.Log("Trigger Pressed!!!");
+            GetComponent<SubQuest>().isFinished = true;
+            GetComponent<SubQuest>().IsDone();
+
+            foreach (var helper in Helpers)
+            {
+                Destroy(helper.gameObject);
+            }
+            Destroy(this);
+        }
+
     }
 }
 
