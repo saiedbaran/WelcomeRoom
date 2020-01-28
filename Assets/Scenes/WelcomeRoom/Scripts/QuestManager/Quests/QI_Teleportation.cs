@@ -1,18 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.Events;
 using Valve.VR;
 using Valve.VR.InteractionSystem;
+using TMPro;
+
 
 namespace WelcomeRoom.QuestManager
 {
     public class QI_Teleportation : MonoBehaviour
     {
+        [SerializeField] int MaxTryNumber = 3;
         public SteamVR_Action_Boolean teleportAction = SteamVR_Input.GetAction<SteamVR_Action_Boolean>("Teleport");
         private TeleportMarkerBase teleportingToMarker;
         public QI_Teleportation_Helper[] Helpers;
+        int _tryNumber = 0;
 
         private List<Quest> subquestList = new List<Quest>();
         void Start()
@@ -37,10 +39,28 @@ namespace WelcomeRoom.QuestManager
                         helper.HelperObject.SetActive(true);
                     }
                 }
+
                 if (teleportAction.stateUp)
+                {
+                    _tryNumber++;
+                    ModifyText();
+                }
+
+                if (_tryNumber >= MaxTryNumber)
                 {
                     QuestDone();
                 }
+            }
+        }
+
+        private void ModifyText()
+        {
+            foreach (var helper in Helpers)
+            {
+                if (helper.Current.GetComponent<TextMeshPro>())
+                { helper.Current.GetComponent<TextMeshPro>().text = _tryNumber.ToString(); }
+                if (helper.Total.GetComponent<TextMeshPro>())
+                { helper.Total.GetComponent<TextMeshPro>().text = "/ " + MaxTryNumber + " repeat"; }
             }
         }
 

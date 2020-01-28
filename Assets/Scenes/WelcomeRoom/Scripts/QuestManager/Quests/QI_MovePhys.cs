@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 namespace WelcomeRoom.QuestManager
 {
@@ -28,10 +30,24 @@ namespace WelcomeRoom.QuestManager
             {
                 SumDistance += (Camera.main.transform.position - PrevCamerapostion).magnitude;
                 PrevCamerapostion = Camera.main.transform.position;
+
+                ModifyText();
+
                 if (SumDistance > MovementThreshold)
                 {
                     QuestDone();
                 }
+            }
+        }
+
+        private void ModifyText()
+        {
+            foreach (var helper in Helpers)
+            {
+                if (helper.Current.GetComponent<TextMeshPro>())
+                { helper.Current.GetComponent<TextMeshPro>().text = (int)(SumDistance * 100) + " cm"; }
+                if (helper.Total.GetComponent<TextMeshPro>())
+                { helper.Total.GetComponent<TextMeshPro>().text = "/ " + (int)(MovementThreshold * 100) + " cm"; }
             }
         }
 
