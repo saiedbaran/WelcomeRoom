@@ -37,7 +37,7 @@ namespace WelcomeRoom.QuestManager
                         helper.HelperObject.SetActive(true);
                     }
                 }
-                if (teleportAction.changed)
+                if (teleportAction.stateUp)
                 {
                     QuestDone();
                 }
