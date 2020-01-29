@@ -53,7 +53,7 @@ namespace WelcomeRoom.QuestManager
 
             foreach (var helper in Helpers)
             {
-                Destroy(helper.gameObject);
+                //Destroy(helper.gameObject);
             }
             Destroy(this);
         }
