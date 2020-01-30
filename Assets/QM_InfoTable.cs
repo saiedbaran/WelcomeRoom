@@ -5,6 +5,7 @@ using TMPro;
 
 public class QM_InfoTable : MonoBehaviour
 {
+    public GameObject CollectionofObjects;
     public string Text;
     public GameObject Picture;
     public GameObject TextObject;

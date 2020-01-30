@@ -8,6 +8,6 @@ public class QM_InfoClose : MonoBehaviour
     private void OnHandHoverBegin(Hand hand)
     {
         var InfoTable = GetComponentInParent<WelcomeRoom.QuestManager.QuestManager>().gameObject.GetComponentInChildren<QM_InfoTable>().gameObject;
-        InfoTable.SetActive(false);
+        InfoTable.GetComponent<QM_InfoTable>().CollectionofObjects.SetActive(false);
     }
 }

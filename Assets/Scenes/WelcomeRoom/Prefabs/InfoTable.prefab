@@ -269,6 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9480555c734b2b4f9702d01670c0cff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CollectionofObjects: {fileID: 7797928210679441819}
   Text: 
   Picture: {fileID: 4446160955994606031}
   TextObject: {fileID: 4568982764476639170}
@@ -857,6 +858,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9480555c734b2b4f9702d01670c0cff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CollectionofObjects: {fileID: 0}
   Text: 
   Picture: {fileID: 4446160955994606031}
   TextObject: {fileID: 4568982764476639170}
