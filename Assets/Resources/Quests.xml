@@ -10,6 +10,15 @@
             <SubQuest Key="i" Script="WelcomeRoom.QuestManager.QI_LearnGrab">Learn Grab interaction</SubQuest>
             <SubQuest Script="WelcomeRoom.QuestManager.QI_GrabQM">Take the QuestManager object and throw it</SubQuest>
         </MainQuest>
+        <MainQuest Key="Wear the smartwatch">
+            <SubQuest>Find the watch on the table</SubQuest>
+            <SubQuest>Wear the watch on your left hand</SubQuest>
+        </MainQuest>
+        <MainQuest Key="Open the Menu/Inventory">
+            <SubQuest>Learn hovering interaction</SubQuest>
+            <SubQuest>Grab the golden crystal</SubQuest>
+            <SubQuest>Throw it on green area</SubQuest>
+        </MainQuest>
 
     </QuestList>
 </QuestManager>
