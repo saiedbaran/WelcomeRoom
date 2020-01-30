@@ -12,6 +12,7 @@ public class QM_InfoObject : MonoBehaviour
 
     private void OnHandHoverBegin(Hand hand)
     {
+        Debug.Log("Hover The i logo");
         var InfoTable = GetComponentInParent<WelcomeRoom.QuestManager.QuestManager>().gameObject.GetComponentInChildren<QM_InfoTable>().gameObject;
         InfoTable.SetActive(true);
         InfoTable.GetComponent<QM_InfoTable>().Text = TextField.GetComponent<TextMeshPro>().text;
