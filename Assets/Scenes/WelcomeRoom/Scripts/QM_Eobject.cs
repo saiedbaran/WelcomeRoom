@@ -43,6 +43,8 @@ public class QM_Eobject_M : MonoBehaviour
         {
             MainQM.gameObject.SetActive(true);
             gameObject.SetActive(false);
+            MainQM.GetComponentInChildren<QM_Handle>().SetIniPosition();
+            GetComponentInParent<LookToPlayer>().enabled = false;
         }
     }
 }
