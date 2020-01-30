@@ -19,6 +19,7 @@ namespace WelcomeRoom.QuestManager
         [SerializeField] private GameObject SubQuestBody;
         [SerializeField] private Vector3 SQBodyOffset = new Vector3(0f, -0.1f, 0f);
         [SerializeField] private GameObject DataObjectRoot;
+        [SerializeField] private GameObject DataObject;
         [SerializeField] private GameObject Cover;
 
         private readonly List<MainQuest> mainQuests = new List<MainQuest>();
@@ -108,7 +109,7 @@ namespace WelcomeRoom.QuestManager
         {
             if (!GetComponentInParent<GameManager>())
             {
-                DataObjectRoot.SetActive(false);
+                DataObject.SetActive(false);
             }
             else
             {
