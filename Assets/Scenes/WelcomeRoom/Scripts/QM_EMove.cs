@@ -44,6 +44,5 @@ public class QM_EMove : MonoBehaviour
                 Sphere.GetComponent<QM_Eobject_M>().enabled = true;
             }
         }
-
     }
 }

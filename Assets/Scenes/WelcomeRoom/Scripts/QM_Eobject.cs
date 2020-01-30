@@ -11,6 +11,7 @@ public class QM_Eobject_M : MonoBehaviour
 
     [SerializeField] float MovementSpeed = 0.1f;
     [SerializeField] float Distance = 0.4f;
+    [SerializeField] GameObject ScrollingColliders;
 
     float _startTime;
     Vector3 iniRight, iniLeft, iniRod;
@@ -45,6 +46,7 @@ public class QM_Eobject_M : MonoBehaviour
             gameObject.SetActive(false);
             MainQM.GetComponentInChildren<QM_Handle>().SetIniPosition();
             GetComponentInParent<LookToPlayer>().enabled = false;
+            ScrollingColliders.GetComponent<QM_ScrollingColliders>().SetTransform();
         }
     }
 }

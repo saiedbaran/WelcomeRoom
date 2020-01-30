@@ -21,6 +21,7 @@ namespace WelcomeRoom.QuestManager
         [SerializeField] private GameObject DataObjectRoot;
         [SerializeField] private GameObject DataObject;
         [SerializeField] private GameObject Cover;
+        public GameObject ScrollingColliders;
 
         private readonly List<MainQuest> mainQuests = new List<MainQuest>();
 

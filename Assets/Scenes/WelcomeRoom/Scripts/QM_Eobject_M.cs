@@ -43,6 +43,7 @@ public class QM_Eobject : MonoBehaviour
         {
             MainQM.transform.position = transform.position;
             MainQM.gameObject.SetActive(true);
+
             gameObject.SetActive(false);
         }
     }
