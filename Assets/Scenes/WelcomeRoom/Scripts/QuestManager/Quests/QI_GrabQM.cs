@@ -51,6 +51,14 @@ namespace WelcomeRoom.QuestManager
             
         }
 
+        public void DestroyHints()
+        {
+            foreach (var helper in Helpers)
+            {
+                Destroy(helper.Helper_hints);
+            }
+        }
+
         public void QuestDone()
         {
             Debug.Log("Trigger Pressed!!!");

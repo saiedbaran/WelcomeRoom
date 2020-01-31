@@ -10,7 +10,7 @@ namespace WelcomeRoom.QuestManager
         {
             if (gameObject.GetComponentInChildren<QI_GrabQM>())
             {
-                gameObject.GetComponentInChildren<QI_GrabQM>().QuestDone();
+                gameObject.GetComponentInChildren<QI_GrabQM>().DestroyHints();
                 Destroy(this);
             }
         }
