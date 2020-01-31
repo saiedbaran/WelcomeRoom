@@ -40,12 +40,9 @@ namespace WelcomeRoom.QuestManager
             {
                 foreach (var helper in Helpers)
                 {
-                    if (!helper.GetComponentInParent<GameManager>())
+                    if (helper.GetComponentInChildren<QuestManager>().ScrollHandle.transform.localPosition.y < -0.3f)
                     {
-                        if (helper.GetComponentInChildren<QuestManager>().ScrollHandle.transform.position.y < 0.8f)
-                        {
-                            QuestDone();
-                        }
+                        QuestDone();
                     }
                 }
             }
@@ -63,7 +60,7 @@ namespace WelcomeRoom.QuestManager
 
         public void QuestDone()
         {
-            Debug.Log("You already Grab the Quest Manager!!!");
+            Debug.Log("You already Grab and throw the Quest Manager!!!");
             GetComponent<SubQuest>().isFinished = true;
             GetComponent<SubQuest>().IsDone();
 
