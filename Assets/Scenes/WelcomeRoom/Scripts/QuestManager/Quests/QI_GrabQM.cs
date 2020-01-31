@@ -61,7 +61,7 @@ namespace WelcomeRoom.QuestManager
 
         public void QuestDone()
         {
-            Debug.Log("Trigger Pressed!!!");
+            Debug.Log("You already Grab the Quest Manager!!!");
             GetComponent<SubQuest>().isFinished = true;
             GetComponent<SubQuest>().IsDone();
 
