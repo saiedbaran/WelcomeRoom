@@ -11,7 +11,7 @@
             <SubQuest Script="WelcomeRoom.QuestManager.QI_GrabQM">Take the QuestManager object and throw it</SubQuest>
         </MainQuest>
         <MainQuest Key="Wear the smartwatch">
-            <SubQuest>Find the watch on the table</SubQuest>
+            <SubQuest Script="WelcomeRoom.QuestManager.QI_GrabWatch">Grab the watch on the table</SubQuest>
             <SubQuest>Wear the watch on your left hand</SubQuest>
         </MainQuest>
         <MainQuest Key="Open the Menu/Inventory">
