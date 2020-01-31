@@ -10,16 +10,24 @@ namespace WelcomeRoom.QuestManager
     public class QI_GrabQM : MonoBehaviour
     {
         public QI_GrabQM_Helper[] Helpers;
+        public QI_QMHandle_Help[] HelperHandle;
 
         private void Start()
         {
             Helpers = FindObjectsOfType<QI_GrabQM_Helper>();
+            HelperHandle = FindObjectsOfType<QI_QMHandle_Help>();
+
             foreach (var helper in Helpers)
             {
                 if (gameObject.GetComponent<SubQuest>().IsActive)
                 {
                     helper.HelperObject.SetActive(true);
                 }
+            }
+
+            foreach (var helperhandle in HelperHandle)
+            {
+                helperhandle.HelperObject.SetActive(true);
             }
 
         }
@@ -38,13 +46,17 @@ namespace WelcomeRoom.QuestManager
                     {
                         helper.HelperObject.SetActive(true);
                     }
+                }
 
-                    foreach (var helper_Handle in FindObjectsOfType<QI_QMHandle_Help>())
+                if (HelperHandle.Length == 0)
+                {
+                    HelperHandle = FindObjectsOfType<QI_QMHandle_Help>();
+                }
+                else
+                {
+                    foreach (var helperhandle in HelperHandle)
                     {
-                        if (!helper_Handle.GetComponentInParent<GameManager>())
-                        {
-                            helper_Handle.gameObject.SetActive(true);
-                        }
+                        helperhandle.HelperObject.SetActive(true);
                     }
                 }
             }
