@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Arrow_Down_Red
+  m_Name: Arrow_Down_Red_Distance
   m_Shader: {fileID: -6465566751694194690, guid: 19d2f6143fd6bc4469637c9e0d4c99a1,
     type: 3}
   m_ShaderKeywords: 
@@ -36,7 +36,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - Vector1_CD6CDC57: 0.1
-    - Vector1_E82D734D: 0.5
+    - Vector1_E82D734D: 2
     - Vector1_EFFC3581: 20
     - Vector1_FFE09865: 5
     m_Colors:
