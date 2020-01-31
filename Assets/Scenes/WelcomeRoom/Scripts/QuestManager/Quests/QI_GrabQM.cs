@@ -10,7 +10,8 @@ namespace WelcomeRoom.QuestManager
     public class QI_GrabQM : MonoBehaviour
     {
         public QI_GrabQM_Helper[] Helpers;
-        void Start()
+
+        private void Start()
         {
             Helpers = FindObjectsOfType<QI_GrabQM_Helper>();
             foreach (var helper in Helpers)
@@ -23,7 +24,7 @@ namespace WelcomeRoom.QuestManager
 
         }
 
-        void Update()
+        private void Update()
         {
             if (gameObject.GetComponent<SubQuest>().IsActive)
             {
@@ -37,12 +38,17 @@ namespace WelcomeRoom.QuestManager
                     {
                         helper.HelperObject.SetActive(true);
                     }
+
+                    foreach (var helper_Handle in FindObjectsOfType<QI_QMHandle_Help>())
+                    {
+                        if (!helper_Handle.GetComponentInParent<GameManager>())
+                        {
+                            helper_Handle.gameObject.SetActive(true);
+                        }
+                    }
                 }
             }
-            // if (GrabAction.GetStateDown(SteamVR_Input_Sources.Any))
-            // {
-            //     QuestDone();
-            // }
+            
         }
 
         public void QuestDone()
