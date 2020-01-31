@@ -34,6 +34,48 @@ namespace WelcomeRoom.QuestManager
 
         private void Update()
         {
+            ActiveHints();
+
+            if (gameObject.GetComponent<SubQuest>().IsActive)
+            {
+                foreach (var helper in Helpers)
+                {
+                    if (!helper.GetComponentInParent<GameManager>())
+                    {
+                        if (helper.GetComponentInChildren<QuestManager>().ScrollHandle.transform.position.y < 0.8f)
+                        {
+                            QuestDone();
+                        }
+                    }
+                }
+            }
+        }
+
+
+
+        public void DestroyHints()
+        {
+            foreach (var helper in Helpers)
+            {
+                Destroy(helper.Helper_hints);
+            }
+        }
+
+        public void QuestDone()
+        {
+            Debug.Log("You already Grab the Quest Manager!!!");
+            GetComponent<SubQuest>().isFinished = true;
+            GetComponent<SubQuest>().IsDone();
+
+            foreach (var helper in Helpers)
+            {
+                //Destroy(helper.gameObject);
+            }
+            Destroy(this);
+        }
+
+        private void ActiveHints()
+        {
             if (gameObject.GetComponent<SubQuest>().IsActive)
             {
                 if (Helpers.Length == 0)
@@ -60,28 +102,6 @@ namespace WelcomeRoom.QuestManager
                     }
                 }
             }
-            
-        }
-
-        public void DestroyHints()
-        {
-            foreach (var helper in Helpers)
-            {
-                Destroy(helper.Helper_hints);
-            }
-        }
-
-        public void QuestDone()
-        {
-            Debug.Log("You already Grab the Quest Manager!!!");
-            GetComponent<SubQuest>().isFinished = true;
-            GetComponent<SubQuest>().IsDone();
-
-            foreach (var helper in Helpers)
-            {
-                //Destroy(helper.gameObject);
-            }
-            Destroy(this);
         }
 
     }
