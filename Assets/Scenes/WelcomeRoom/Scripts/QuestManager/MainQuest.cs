@@ -9,6 +9,7 @@ namespace WelcomeRoom.QuestManager
             if (!SubQuests.All(subQuest => subQuest.isFinished)) return false;
             OnQuestFinished.Invoke();
             ActiveNextMainQuest();
+            this.IsActive = false;
             return true;
         }
 
