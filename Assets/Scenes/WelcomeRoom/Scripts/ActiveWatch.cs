@@ -13,6 +13,7 @@ public class ActiveWatch : MonoBehaviour
             trigger.gameObject.GetComponent<WatchTemprory>().parentWatch.SetActive(false);
             watchObject.SetActive(true);
             GameManager.Instance.GetComponentInChildren<QI_GrabWatch>().QuestDone();
+            GameManager.Instance.GetComponentInChildren<QI_WearWatch>().QuestDone();
             Destroy(trigger.gameObject.GetComponent<WatchTemprory>().parentWatch);
         }
     }
