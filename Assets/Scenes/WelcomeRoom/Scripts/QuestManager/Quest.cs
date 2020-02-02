@@ -19,6 +19,7 @@ namespace WelcomeRoom.QuestManager
         public string Text { get; set; }
 
         public bool IsActive { get; set; }
+        
 
         public abstract bool IsDone();
         public bool isFinished;

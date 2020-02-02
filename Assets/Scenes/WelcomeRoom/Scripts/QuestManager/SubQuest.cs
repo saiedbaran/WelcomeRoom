@@ -28,6 +28,7 @@ namespace WelcomeRoom.QuestManager
                 OnQuestFinished.Invoke();
                 ActiveNextSubQuest();
                 GetComponentInParent<MainQuest>().IsDone();
+                this.IsActive = false;
                 return true;
             }
             return false;
@@ -38,7 +39,7 @@ namespace WelcomeRoom.QuestManager
             var subquestList = GetComponentInParent<MainQuest>().SubQuests;
             foreach (var quest in subquestList)
             {
-                if (!quest.IsActive)
+                if (!quest.IsActive & !quest.isFinished)
                 {
                     quest.IsActive = true;
                     quest.ActivateLamp();
