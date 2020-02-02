@@ -70,6 +70,11 @@ namespace WelcomeRoom.QuestManager
             {
                 Destroy(helper.gameObject);
             }
+
+            foreach (var VARIABLE in FindObjectsOfType<QI_QMHandle_Help>())
+            {
+                Destroy(VARIABLE);
+            }
             Destroy(this);
         }
 
