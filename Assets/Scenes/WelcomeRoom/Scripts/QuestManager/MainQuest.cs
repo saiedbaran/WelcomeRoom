@@ -14,17 +14,22 @@ namespace WelcomeRoom.QuestManager
 
         public void ActiveNextMainQuest()
         {
-            var mainquestList = GetComponentInParent<QuestManager>().MainQuests;
-            foreach (var quest in mainquestList)
+            //var mainquestList = GetComponentInParent<QuestManager>().MainQuests;
+            var _QuestManagerList = FindObjectsOfType<QuestManager>();
+            foreach (var QML in _QuestManagerList)
             {
-                if (!quest.IsActive)
+                foreach (var quest in QML.MainQuests)
                 {
-                    quest.IsActive = true;
-                    quest.ActivateLamp();
-                    ActiveNextSubQuest(quest);
-                    return;
+                    if (!quest.IsActive)
+                    {
+                        quest.IsActive = true;
+                        quest.ActivateLamp();
+                        ActiveNextSubQuest(quest);
+                        return;
+                    }
                 }
             }
+
         }
 
         public void ActiveNextSubQuest(MainQuest mquest)
