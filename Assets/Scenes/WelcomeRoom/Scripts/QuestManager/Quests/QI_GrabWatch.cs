@@ -23,6 +23,7 @@ namespace WelcomeRoom.QuestManager
         {
             if (gameObject.GetComponent<SubQuest>().IsActive)
             {
+                gameObject.GetComponentInParent<MainQuest>().ActivateLamp();
                 if (Helpers.Length == 0)
                 {
                     Helpers = FindObjectsOfType<QI_GrabWatch_Helper>();
