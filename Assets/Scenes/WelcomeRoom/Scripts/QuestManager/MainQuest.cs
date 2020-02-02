@@ -9,28 +9,25 @@ namespace WelcomeRoom.QuestManager
             if (!SubQuests.All(subQuest => subQuest.isFinished)) return false;
             OnQuestFinished.Invoke();
             ActiveNextMainQuest();
-            this.IsActive = false;
+            isFinished = true;
+            //this.IsActive = false;
             return true;
         }
 
         public void ActiveNextMainQuest()
         {
-            //var mainquestList = GetComponentInParent<QuestManager>().MainQuests;
-            var _QuestManagerList = FindObjectsOfType<QuestManager>();
-            foreach (var QML in _QuestManagerList)
+            
+            var mainquestList = GetComponentInParent<QuestManager>().MainQuests;
+            foreach (var quest in mainquestList)
             {
-                foreach (var quest in QML.MainQuests)
+                if (!quest.IsActive & !isFinished)
                 {
-                    if (!quest.IsActive)
-                    {
-                        quest.IsActive = true;
-                        quest.ActivateLamp();
-                        ActiveNextSubQuest(quest);
-                        return;
-                    }
+                    quest.ActivateLamp();
+                    ActiveNextSubQuest(quest);
+                    quest.IsActive = true;
+                    return;
                 }
             }
-
         }
 
         public void ActiveNextSubQuest(MainQuest mquest)
