@@ -26,8 +26,7 @@ namespace WelcomeRoom.QuestManager
                         quest.IsActive = true;
                         quest.ActivateLamp();
                         ActiveNextSubQuest(quest);
-                        //return;
-                        break;
+                        return;
                     }
                 }
             }
