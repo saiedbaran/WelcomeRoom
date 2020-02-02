@@ -6,4 +6,5 @@ public class QI_GrabQM_Helper : MonoBehaviour
 {
     public GameObject HelperObject;
     public GameObject Helper_hints;
+    public GameObject WellDone_hint;
 }

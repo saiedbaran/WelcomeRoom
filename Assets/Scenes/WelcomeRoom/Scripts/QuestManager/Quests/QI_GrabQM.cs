@@ -42,7 +42,9 @@ namespace WelcomeRoom.QuestManager
                 {
                     if (helper.GetComponentInChildren<QuestManager>().ScrollHandle.transform.localPosition.y < -0.3f)
                     {
-                        QuestDone();
+                        Invoke("ShowWellDone",1f);
+                        Invoke("QuestDone",5f);
+                        //QuestDone();
                     }
                 }
             }
@@ -66,7 +68,7 @@ namespace WelcomeRoom.QuestManager
 
             foreach (var helper in Helpers)
             {
-                //Destroy(helper.gameObject);
+                Destroy(helper.gameObject);
             }
             Destroy(this);
         }
@@ -98,6 +100,15 @@ namespace WelcomeRoom.QuestManager
                         helperhandle.HelperObject.SetActive(true);
                     }
                 }
+            }
+        }
+
+        private void ShowWellDone()
+        {
+            foreach (var helper in Helpers)
+            {
+                helper.HelperObject.SetActive(false);
+                helper.WellDone_hint.SetActive(true);
             }
         }
 
