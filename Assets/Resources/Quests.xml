@@ -16,8 +16,8 @@
         </MainQuest>
         <MainQuest Key="Open the Menu/Inventory">
             <SubQuest Script="WelcomeRoom.QuestManager.QI_LearnHover">Learn hovering interaction</SubQuest>
-            <SubQuest>Grab the golden crystal</SubQuest>
-            <SubQuest>Throw it on green area</SubQuest>
+            <SubQuest Script="WelcomeRoom.QuestManager.QI_GrabCrystal">Grab the golden crystal</SubQuest>
+            <SubQuest Script="WelcomeRoom.QuestManager.QI_ThrowCrystal">Throw it on green area</SubQuest>
         </MainQuest>
 
     </QuestList>

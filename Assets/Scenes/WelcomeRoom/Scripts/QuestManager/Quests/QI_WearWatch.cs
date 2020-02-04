@@ -8,7 +8,7 @@ namespace WelcomeRoom.QuestManager
     {
         public void QuestDone()
         {
-            Debug.Log("Watch is taken!!!");
+            Debug.Log("Watch is on your hand!!!");
             GetComponent<SubQuest>().isFinished = true;
             GetComponent<SubQuest>().IsDone();
             Destroy(this);

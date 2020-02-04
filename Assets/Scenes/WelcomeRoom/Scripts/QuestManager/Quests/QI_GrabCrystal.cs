@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace  WelcomeRoom.QuestManager
+namespace WelcomeRoom.QuestManager
 {
-    public class QI_LearnHover : MonoBehaviour
+    public class QI_GrabCrystal : MonoBehaviour
     {
-        public QI_LearnHover_Helper[] Helpers;
+        public QI_GrabCrystal_Helper[] Helpers;
         void Start()
         {
-            Helpers = FindObjectsOfType<QI_LearnHover_Helper>();
+            Helpers = FindObjectsOfType<QI_GrabCrystal_Helper>();
             foreach (var helper in Helpers)
             {
                 if (gameObject.GetComponent<SubQuest>().IsActive)
@@ -17,17 +17,17 @@ namespace  WelcomeRoom.QuestManager
                     helper.HelperObject.SetActive(true);
                 }
             }
-
         }
 
         void Update()
         {
             if (gameObject.GetComponent<SubQuest>().IsActive)
             {
-                gameObject.GetComponentInParent<MainQuest>().ActivateLamp();
+                gameObject.GetComponentInParent<MainQuest>().ActivateLamp(); //TODO should be removed later
+
                 if (Helpers.Length == 0)
                 {
-                    Helpers = FindObjectsOfType<QI_LearnHover_Helper>();
+                    Helpers = FindObjectsOfType<QI_GrabCrystal_Helper>();
                 }
                 else
                 {
@@ -37,12 +37,11 @@ namespace  WelcomeRoom.QuestManager
                     }
                 }
             }
-
         }
 
         public void QuestDone()
         {
-            Debug.Log("You learned Hovering!!!");
+            Debug.Log("You Grabbed the Crystal!!!");
             GetComponent<SubQuest>().isFinished = true;
             GetComponent<SubQuest>().IsDone();
 
@@ -54,4 +53,3 @@ namespace  WelcomeRoom.QuestManager
         }
     }
 }
-

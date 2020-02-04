@@ -19,6 +19,9 @@ public class MenuAppearing : MonoBehaviour
         if (collider.transform.tag == "MenuPlace")
         {
             Invoke("InventoryGeneration", InventroyGenerationDelay);
+
+            if(GetComponent<QI_ThrowCrystal_Invoker>()) { GetComponent<QI_ThrowCrystal_Invoker>().InvokeQuestDone();}
+
             //InventoryGeneration();
         }
     }

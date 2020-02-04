@@ -99,6 +99,11 @@ public class WatchOpen : MonoBehaviour
 
         GameManager.Instance.MenuSpace.SetActive(true);
 
+        if (gameObject.GetComponent<QI_LearnHover_Invoker>())
+        {
+            GetComponent<QI_LearnHover_Invoker>().InvokeQuestDone();
+        }
+
     }
 
     private void TimerMethod()
