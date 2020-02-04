@@ -1609,18 +1609,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &5494824067237961758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2791055322228417562}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d1df556d2602a94ba3b79a63173769c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2976527203731579267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1631,6 +1619,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6dd6c675241fa2748a9f19bbb3fa4a00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5494824067237961758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2791055322228417562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d1df556d2602a94ba3b79a63173769c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3154431393541045712
@@ -2580,6 +2580,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 24.143997
+      objectReference: {fileID: 0}
+    - target: {fileID: 4902421424690601221, guid: 36043a9cf1674014dac7d7bc2c1bb0af,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6172070806895773179, guid: 36043a9cf1674014dac7d7bc2c1bb0af,
         type: 3}
