@@ -17,6 +17,9 @@ namespace WelcomeRoom.QuestManager
         int _tryNumber = 0;
 
         private List<Quest> subquestList = new List<Quest>();
+
+        private AudioSource _audioSource;
+        private List<AudioClip> _audioClips = new List<AudioClip>();
         void Start()
         {
             teleportAction = Teleport.instance.teleportAction;
@@ -25,6 +28,9 @@ namespace WelcomeRoom.QuestManager
             {
                 helper.HelperObject.SetActive(true);
             }
+
+            AudioManagement();
+            PlayFirstAudio();
         }
 
         void Update()
@@ -38,7 +44,10 @@ namespace WelcomeRoom.QuestManager
                     {
                         helper.HelperObject.SetActive(true);
                     }
+                    AudioManagement();
                 }
+
+                if(!_audioSource.isPlaying) { PlayFirstAudio();}
 
                 if (teleportAction.stateUp)
                 {
@@ -77,6 +86,25 @@ namespace WelcomeRoom.QuestManager
                 Destroy(helper.gameObject);
             }
             Destroy(this);
+        }
+
+        public void AudioManagement()
+        {
+            _audioSource = gameObject.GetComponent<AudioSource>();
+
+            foreach (var helper in Helpers)
+            {
+                foreach (var clip in helper.AudioClips)
+                {
+                    _audioClips.Add(clip);
+                }
+            }
+        }
+
+        public void PlayFirstAudio()
+        {
+            _audioSource.clip = _audioClips[0];
+            _audioSource.Play();
         }
     }
 }

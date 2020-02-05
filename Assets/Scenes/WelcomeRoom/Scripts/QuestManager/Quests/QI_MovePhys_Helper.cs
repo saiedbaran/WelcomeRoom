@@ -7,4 +7,5 @@ public class QI_MovePhys_Helper : MonoBehaviour
     public GameObject HelperObject;
     public GameObject Current;
     public GameObject Total;
+    public List<AudioClip> AudioClips = new List<AudioClip>();
 }

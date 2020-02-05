@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace WelcomeRoom.QuestManager
@@ -8,6 +9,7 @@ namespace WelcomeRoom.QuestManager
         [SerializeField] private GameObject finishLine;
 
         [SerializeField] private GameObject infoLogoObject;
+
 
         private bool hasAdditionalInformation;
 

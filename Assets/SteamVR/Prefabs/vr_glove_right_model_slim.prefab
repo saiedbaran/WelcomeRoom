@@ -2862,6 +2862,8 @@ MonoBehaviour:
   HelperObject: {fileID: 4722986673813667195}
   Current: {fileID: 8323103670050370328}
   Total: {fileID: 5070903708058317308}
+  AudioClips:
+  - {fileID: 8300000, guid: 07b4f8fdc1b0e4245b3f8e862a4cf5dd, type: 3}
 --- !u!1 &4138525196369848596
 GameObject:
   m_ObjectHideFlags: 0

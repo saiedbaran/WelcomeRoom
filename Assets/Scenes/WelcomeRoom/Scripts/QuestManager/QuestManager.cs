@@ -67,7 +67,7 @@ namespace WelcomeRoom.QuestManager
                         //Debug.Log("Script Found!!!");
                         var _script = Type.GetType(subQuestText.Attribute("Script")?.Value);
                         subQuestObject.gameObject.AddComponent(_script);
-                        
+                        subQuestObject.gameObject.AddComponent<AudioSource>();
                     }
 
                     subQuestObject.ActivateLamp();
