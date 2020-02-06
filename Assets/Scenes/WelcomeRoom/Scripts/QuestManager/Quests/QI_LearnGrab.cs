@@ -56,10 +56,10 @@ namespace WelcomeRoom.QuestManager
         {
             foreach (var helper in Helpers)
             {
-                if (helper.Current.GetComponent<TextMeshPro>())
-                { helper.Current.GetComponent<TextMeshPro>().text = _tryNumber.ToString(); }
+                //if (helper.Current.GetComponent<TextMeshPro>())
+                //{ helper.Current.GetComponent<TextMeshPro>().text = _tryNumber.ToString(); }
                 if (helper.Total.GetComponent<TextMeshPro>())
-                { helper.Total.GetComponent<TextMeshPro>().text = "/ " + MaxTryNumber + " repeat"; }
+                { helper.Total.GetComponent<TextMeshPro>().text = _tryNumber.ToString() + " / " + MaxTryNumber + " repeat"; }
             }
         }
         private void QuestDone()
