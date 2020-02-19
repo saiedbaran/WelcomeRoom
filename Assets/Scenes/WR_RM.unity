@@ -1536,7 +1536,7 @@ PrefabInstance:
     - target: {fileID: 1281097899980762319, guid: edf86db631d91a643abe33bee03dcc56,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.1343565
+      value: -2.134358
       objectReference: {fileID: 0}
     - target: {fileID: 1281097900124426512, guid: edf86db631d91a643abe33bee03dcc56,
         type: 3}
@@ -1546,12 +1546,12 @@ PrefabInstance:
     - target: {fileID: 1281097900124426514, guid: edf86db631d91a643abe33bee03dcc56,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.6635084
+      value: 1.6635098
       objectReference: {fileID: 0}
     - target: {fileID: 1281097900124426514, guid: edf86db631d91a643abe33bee03dcc56,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.448806
+      value: 2.4488075
       objectReference: {fileID: 0}
     - target: {fileID: 1630787381584130787, guid: edf86db631d91a643abe33bee03dcc56,
         type: 3}
@@ -1628,6 +1628,11 @@ PrefabInstance:
       propertyPath: linearMapping
       value: 
       objectReference: {fileID: 239547024}
+    - target: {fileID: 4529189576553387598, guid: edf86db631d91a643abe33bee03dcc56,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.12
+      objectReference: {fileID: 0}
     - target: {fileID: 6131808403458908381, guid: edf86db631d91a643abe33bee03dcc56,
         type: 3}
       propertyPath: linearMapping
@@ -4781,7 +4786,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   volumeAnchorOverride: {fileID: 0}
-  antialiasing: 0
+  antialiasing: 1
   SMAAQuality: 2
   dithering: 0
   stopNaNs: 0
