@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Localization;
 using UnityEngine;
 using Valve.VR;
 using Valve.VR.InteractionSystem;
@@ -35,6 +36,8 @@ namespace WelcomeRoom.QuestManager
 
         void Update()
         {
+            ModifyText();
+
             if (gameObject.GetComponent<SubQuest>().IsActive)
             {
                 if (Helpers.Length == 0)
@@ -52,7 +55,6 @@ namespace WelcomeRoom.QuestManager
                 if (teleportAction.stateUp)
                 {
                     _tryNumber++;
-                    ModifyText();
                 }
 
                 if (_tryNumber >= MaxTryNumber)
@@ -66,10 +68,10 @@ namespace WelcomeRoom.QuestManager
         {
             foreach (var helper in Helpers)
             {
-                //if (helper.Current.GetComponent<TextMeshPro>())
-                //{ helper.Current.GetComponent<TextMeshPro>().text = _tryNumber.ToString(); }
                 if (helper.Total.GetComponent<TextMeshPro>())
-                { helper.Total.GetComponent<TextMeshPro>().text = _tryNumber.ToString()+ " / " + MaxTryNumber + " repeat"; }
+                {
+                    helper.Total.GetComponent<TextMeshPro>().text = $"{_tryNumber} / {MaxTryNumber} {LanguageManager.Instance.GetString("Repeat")}";
+                }
             }
         }
 

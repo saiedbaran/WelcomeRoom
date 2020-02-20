@@ -2,22 +2,68 @@
 <QuestManager>
     <QuestList>
 
-        <MainQuest Key="Move inside the room">
-            <SubQuest Script="WelcomeRoom.QuestManager.QI_MovePhys">Try to Move Physically</SubQuest>
-            <SubQuest Key="i" Script="WelcomeRoom.QuestManager.QI_Teleportation">Learn Teleportation system</SubQuest>
+        <MainQuest>
+			<TranslationKey>QM_Move</TranslationKey>
+			
+            <SubQuest>
+				<TranslationKey>QM_MovePhysically</TranslationKey>
+				<Script>WelcomeRoom.QuestManager.QI_MovePhys</Script>
+			</SubQuest>
+			
+            <SubQuest HasAdditionalInformation="True">
+				<TranslationKey>QM_LearnTeleport</TranslationKey>
+				<Script>WelcomeRoom.QuestManager.QI_Teleportation</Script>
+			</SubQuest>
         </MainQuest>
-        <MainQuest Key="Open the Quest Manager">
-            <SubQuest Key="i" Script="WelcomeRoom.QuestManager.QI_LearnGrab">Learn Grab interaction</SubQuest>
-            <SubQuest Script="WelcomeRoom.QuestManager.QI_GrabQM">Take the QuestManager object and throw it</SubQuest>
+		
+		
+        <MainQuest>
+			<TranslationKey>QM_OpenQuestManager</TranslationKey>
+			
+            <SubQuest HasAdditionalInformation="True">
+				<TranslationKey>QM_LearnGrab</TranslationKey>
+				<Script>WelcomeRoom.QuestManager.QI_LearnGrab</Script>
+			</SubQuest>
+			
+            <SubQuest>
+				<TranslationKey>QM_TakeQuestManagerObj</TranslationKey>
+				<Script>WelcomeRoom.QuestManager.QI_GrabQM</Script>
+			</SubQuest>
         </MainQuest>
-        <MainQuest Key="Wear the smartwatch">
-            <SubQuest Script="WelcomeRoom.QuestManager.QI_GrabWatch">Grab the watch on the table</SubQuest>
-            <SubQuest Script="WelcomeRoom.QuestManager.QI_WearWatch">Wear the watch on your left hand</SubQuest>
+		
+		
+        <MainQuest>
+			<TranslationKey>QM_WearSmartWatch</TranslationKey>
+			
+            <SubQuest>
+				<TranslationKey>QM_GrabSmartWatch</TranslationKey>
+				<Script>WelcomeRoom.QuestManager.QI_GrabWatch</Script>
+			</SubQuest>
+			
+            <SubQuest>
+				<TranslationKey>QM_WearSmartWatchOnLeftHand</TranslationKey>
+				<Script>WelcomeRoom.QuestManager.QI_WearWatch</Script>
+			</SubQuest>
         </MainQuest>
-        <MainQuest Key="Open the Menu/Inventory">
-            <SubQuest Script="WelcomeRoom.QuestManager.QI_LearnHover">Learn hovering interaction</SubQuest>
-            <SubQuest Script="WelcomeRoom.QuestManager.QI_GrabCrystal">Grab the golden crystal</SubQuest>
-            <SubQuest Script="WelcomeRoom.QuestManager.QI_ThrowCrystal">Throw it on green area</SubQuest>
+		
+		
+        <MainQuest>
+			<TranslationKey>QM_OpenMenu</TranslationKey>
+			
+            <SubQuest>
+				<TranslationKey>QM_LearnHoveringInteraction</TranslationKey>
+				<Script>WelcomeRoom.QuestManager.QI_LearnHover</Script>
+			</SubQuest>
+			
+            <SubQuest>
+				<TranslationKey>QM_GrabCrystal</TranslationKey>
+				<Script>WelcomeRoom.QuestManager.QI_GrabCrystal</Script>
+			</SubQuest>
+			
+            <SubQuest>
+				<TranslationKey>QM_ThrowCrystal</TranslationKey>
+				<Script>WelcomeRoom.QuestManager.QI_ThrowCrystal</Script>
+			</SubQuest>
         </MainQuest>
 
     </QuestList>
