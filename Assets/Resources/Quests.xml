@@ -4,14 +4,17 @@
 
         <MainQuest>
 			<TranslationKey>QM_Move</TranslationKey>
+			<DefaultText>Move inside the room</DefaultText>
 			
             <SubQuest>
 				<TranslationKey>QM_MovePhysically</TranslationKey>
+				<DefaultText>Try to Move Physically</DefaultText>
 				<Script>WelcomeRoom.QuestManager.QI_MovePhys</Script>
 			</SubQuest>
 			
             <SubQuest HasAdditionalInformation="True">
 				<TranslationKey>QM_LearnTeleport</TranslationKey>
+				<DefaultText>Learn Teleportation system</DefaultText>
 				<Script>WelcomeRoom.QuestManager.QI_Teleportation</Script>
 			</SubQuest>
         </MainQuest>
@@ -19,14 +22,17 @@
 		
         <MainQuest>
 			<TranslationKey>QM_OpenQuestManager</TranslationKey>
-			
+			<DefaultText>Open the Quest Manager</DefaultText>
+
             <SubQuest HasAdditionalInformation="True">
 				<TranslationKey>QM_LearnGrab</TranslationKey>
+				<DefaultText>Learn to grab objects</DefaultText>
 				<Script>WelcomeRoom.QuestManager.QI_LearnGrab</Script>
 			</SubQuest>
 			
             <SubQuest>
 				<TranslationKey>QM_TakeQuestManagerObj</TranslationKey>
+				<DefaultText>Take the QuestManager object and throw it</DefaultText>
 				<Script>WelcomeRoom.QuestManager.QI_GrabQM</Script>
 			</SubQuest>
         </MainQuest>
@@ -34,14 +40,17 @@
 		
         <MainQuest>
 			<TranslationKey>QM_WearSmartWatch</TranslationKey>
-			
+			<DefaultText>Wear the smartwatch</DefaultText>
+
             <SubQuest>
 				<TranslationKey>QM_GrabSmartWatch</TranslationKey>
+				<DefaultText>Grab the watch on the table</DefaultText>
 				<Script>WelcomeRoom.QuestManager.QI_GrabWatch</Script>
 			</SubQuest>
 			
             <SubQuest>
 				<TranslationKey>QM_WearSmartWatchOnLeftHand</TranslationKey>
+				<DefaultText>Wear the watch on your left hand</DefaultText>
 				<Script>WelcomeRoom.QuestManager.QI_WearWatch</Script>
 			</SubQuest>
         </MainQuest>
@@ -49,19 +58,23 @@
 		
         <MainQuest>
 			<TranslationKey>QM_OpenMenu</TranslationKey>
+			<DefaultText>Open the Menu/Inventory</DefaultText>
 			
             <SubQuest>
 				<TranslationKey>QM_LearnHoveringInteraction</TranslationKey>
+				<DefaultText>Learn hovering interaction</DefaultText>
 				<Script>WelcomeRoom.QuestManager.QI_LearnHover</Script>
 			</SubQuest>
 			
             <SubQuest>
 				<TranslationKey>QM_GrabCrystal</TranslationKey>
+				<DefaultText>Grab the golden crystal</DefaultText>
 				<Script>WelcomeRoom.QuestManager.QI_GrabCrystal</Script>
 			</SubQuest>
 			
             <SubQuest>
 				<TranslationKey>QM_ThrowCrystal</TranslationKey>
+				<DefaultText>Throw the crystal on green area</DefaultText>
 				<Script>WelcomeRoom.QuestManager.QI_ThrowCrystal</Script>
 			</SubQuest>
         </MainQuest>

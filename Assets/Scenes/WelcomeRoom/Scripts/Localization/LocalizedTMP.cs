@@ -1,9 +1,11 @@
-﻿using TMPro;
+﻿using System;
+using TMPro;
 using UnityEngine;
 
 namespace Localization
 {
     [RequireComponent(typeof(TMP_Text))]
+    [ExecuteInEditMode]
     public class LocalizedTMP : MonoBehaviour
     {
         [SerializeField]

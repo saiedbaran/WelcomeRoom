@@ -51,6 +51,7 @@ namespace WelcomeRoom.QuestManager
                 var mainQuestObject = InstantiateQuestObject<MainQuest>(MainQuestBody, mainQuestPosition, DataObjectRoot.transform);
                 mainQuestObject.name = mainQuest.Element("TranslationKey")?.Value ?? "";
                 mainQuestObject.GetComponentInChildren<LocalizedTMP>().Key = mainQuestObject.name;
+                mainQuestObject.GetComponentInChildren<TextMeshPro>().text = mainQuest.Element("DefaultText")?.Value ?? "";
                 mainQuestObject.ActivateLamp();
 
                 foreach (var subQuest in mainQuest.Elements().Where(element => element.Name == "SubQuest"))
@@ -60,6 +61,7 @@ namespace WelcomeRoom.QuestManager
 
                     subQuestObject.name = subQuest.Element("TranslationKey")?.Value ?? "";
                     subQuestObject.GetComponentInChildren<LocalizedTMP>().Key = subQuestObject.name;
+                    subQuestObject.GetComponentInChildren<TextMeshPro>().text = subQuest.Element("DefaultText")?.Value ?? "";
 
                     if (subQuest.Attribute("HasAdditionalInformation")?.Value == "True")
                         subQuestObject.HasAdditionalInformation = true;
