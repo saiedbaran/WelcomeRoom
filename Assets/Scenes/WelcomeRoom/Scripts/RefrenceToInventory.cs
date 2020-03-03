@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class RefrenceToInventory : MonoBehaviour
 {
-    private void Start()
-    {
-        Invoke("InventoryDeactive", 0.1f);
-    }
+    //private void Start()
+    //{
+    //    Invoke("InventoryDeactive", 0.1f);
+    //}
 
-    private void InventoryDeactive()
-    {
-        gameObject.SetActive(false);
-    }
+    //private void InventoryDeactive()
+    //{
+    //    //gameObject.SetActive(false);
+    //    //foreach(var gameObject in GameManager.Instance.DeactiveAtStart)
+    //    //{
+    //    //    gameObject.SetActive(false);
+    //    //}
+    //}
 }

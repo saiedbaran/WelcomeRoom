@@ -18,5 +18,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] public GameObject Inventory;
     [SerializeField] public GameObject MenuSpace;
     [SerializeField] public GameObject QuestManagement;
+    public List<GameObject> DeactiveAtStart = new List<GameObject>();
     public float VolumeAmount = 0.5f;
+
 }

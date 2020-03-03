@@ -20,7 +20,7 @@ public class GramaphoneReader : MonoBehaviour
         {
             DiskPosition(trigger);
             MidScreen.GetComponent<MeshRenderer>().material = trigger.GetComponent<MeshRenderer>().materials[1];
-            GetComponent<LevelSelectionPortal>().ActiveDoorHandle();
+            GetComponent<LevelSelectionPortal>().ActiveDoorHandle(trigger.GetComponent<GramaphoneDisks>().ScenePrefab);
         }
     }
 
