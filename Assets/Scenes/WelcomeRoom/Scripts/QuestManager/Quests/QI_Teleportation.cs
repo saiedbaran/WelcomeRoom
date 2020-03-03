@@ -36,8 +36,6 @@ namespace WelcomeRoom.QuestManager
 
         void Update()
         {
-            ModifyText();
-
             if (gameObject.GetComponent<SubQuest>().IsActive)
             {
                 if (Helpers.Length == 0)
@@ -50,7 +48,9 @@ namespace WelcomeRoom.QuestManager
                     AudioManagement();
                 }
 
-                if(!_audioSource.isPlaying) { PlayFirstAudio();}
+                ModifyText();
+
+                if (!_audioSource.isPlaying) { PlayFirstAudio();}
 
                 if (teleportAction.stateUp)
                 {
