@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageManager>
+    <Translations>
+
+        <!-- Inventory Hint -->
+        <Translation Key="H_YourPersonal">
+            <English>Your Personal</English>
+            <German>Dein persönliches</German>
+        </Translation>
+
+        <Translation Key="H_DragOutShelfes">
+            <English>Drag out shelfes</English>
+            <German>Ziehe die Ablagen heraus</German>
+        </Translation>
+        <!-- -->
+
+        <!-- Exit Hint-->
+        <Translation Key="H_DragDownHandle">
+            <English>Drag Down the Handle</English>
+            <German>Ziehe den Griff nach unten</German>
+        </Translation>
+
+        <Translation Key="H_PressButton">
+            <English>Press the Button</English>
+            <German>Drücke den Knopf</German>
+        </Translation>
+        <!-- -->
+
+        <!-- Volume Hint -->
+        <Translation Key="H_ChangeVolume">
+            <English>Change</English>
+            <German>Einstellen der</German>
+        </Translation>
+
+        <Translation Key="H_RotateMainGear">
+            <English>Rotate the Main Gear</English>
+            <German>Drehe das große Zahnrad</German>
+        </Translation>
+        <!-- -->
+    </Translations>
+</LanguageManager>

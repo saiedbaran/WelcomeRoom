@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Xml.Linq;
+using Localization;
 using UnityEngine;
 using TMPro;
 
@@ -42,31 +44,33 @@ namespace WelcomeRoom.QuestManager
             var doc = XDocument.Load(new MemoryStream(text.bytes));
 
             var mainQuestPosition = MQBodyiniOffset;
-            foreach (var mainQuestText in doc.Descendants("MainQuest"))
+            foreach (var mainQuest in doc.Descendants("MainQuest"))
             {
                 var subQuestOffsetCount = 0;
 
-                var questText = mainQuestText.Attribute("Key")?.Value;
-                if (questText == null) { continue; }
-
                 var mainQuestObject = InstantiateQuestObject<MainQuest>(MainQuestBody, mainQuestPosition, DataObjectRoot.transform);
-                mainQuestObject.name = mainQuestObject.Textfield.text = questText;
+                mainQuestObject.name = mainQuest.Element("TranslationKey")?.Value ?? "";
+                mainQuestObject.GetComponentInChildren<LocalizedTMP>().Key = mainQuestObject.name;
+                mainQuestObject.GetComponentInChildren<TextMeshPro>().text = mainQuest.Element("DefaultText")?.Value ?? "";
                 mainQuestObject.ActivateLamp();
 
-                foreach (var subQuestText in mainQuestText.Elements())
+                foreach (var subQuest in mainQuest.Elements().Where(element => element.Name == "SubQuest"))
                 {
                     var subQuestPosition = subQuestOffsetCount * SQBodyOffset;
                     var subQuestObject = InstantiateQuestObject<SubQuest>(SubQuestBody, subQuestPosition, mainQuestObject.transform);
-                    subQuestObject.name = subQuestObject.Textfield.text = subQuestText.Value;
 
-                    if (subQuestText.Attribute("Key")?.Value == "i")
+                    subQuestObject.name = subQuest.Element("TranslationKey")?.Value ?? "";
+                    subQuestObject.GetComponentInChildren<LocalizedTMP>().Key = subQuestObject.name;
+                    subQuestObject.GetComponentInChildren<TextMeshPro>().text = subQuest.Element("DefaultText")?.Value ?? "";
+
+                    if (subQuest.Attribute("HasAdditionalInformation")?.Value == "True")
                         subQuestObject.HasAdditionalInformation = true;
 
-                    if (subQuestText.Attribute("Script")?.Value != null)
+                    var subQuestScript = subQuest.Element("Script")?.Value;
+                    if (subQuestScript != null)
                     {
-                        //Debug.Log("Script Found!!!");
-                        var _script = Type.GetType(subQuestText.Attribute("Script")?.Value);
-                        subQuestObject.gameObject.AddComponent(_script);
+                        var script = Type.GetType(subQuestScript);
+                        subQuestObject.gameObject.AddComponent(script);
                         subQuestObject.gameObject.AddComponent<AudioSource>();
                     }
 
@@ -77,10 +81,10 @@ namespace WelcomeRoom.QuestManager
                     subQuestOffsetCount++;
                 }
 
-                foreach (var subquest in mainQuestObject.SubQuests)
+                foreach (var subQuest in mainQuestObject.SubQuests)
                 {
-                    subquest.IsActive = false;
-                    subquest.DeactivateLamp();
+                    subQuest.IsActive = false;
+                    subQuest.DeactivateLamp();
                 }
 
                 mainQuestPosition += MQBodyOffset + SQBodyOffset * subQuestOffsetCount;
@@ -94,6 +98,9 @@ namespace WelcomeRoom.QuestManager
 
         private void Active_FirstQuest()
         {
+            if (mainQuests.Count == 0)
+                return;
+
             mainQuests[0].SubQuests[0].IsActive = true;
             mainQuests[0].SubQuests[0].ActivateLamp();
             mainQuests[0].IsActive = true;

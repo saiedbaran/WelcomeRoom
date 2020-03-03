@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageManager>
+    <Translations>
+				
+        <Translation Key="H_Question">
+            <English>Do you want to</English>
+            <German>Möchtest du</German>
+        </Translation>
+
+        <!-- Movement Physically Hint -->
+	    <Translation Key="H_MovePhysically">
+            <English>Try to Move Physically</English>
+            <German>Bewege dich physisch</German>
+        </Translation>
+
+		<!-- Grab Quest Manager Hint -->	
+		<Translation Key="H_GrabThrowQM">
+            <English>Grab and Throw</English>
+            <German>Nimm und Werfe den</German>
+        </Translation>
+		
+		<Translation Key="H_OnRedArea">
+            <English>On the Red area</English>
+            <German>in den roten Bereich</German>
+        </Translation>
+		<!-- -->	
+		
+		<!-- Grab SmartWatch Hint -->
+		<Translation Key="H_SmartWatch">
+            <English>SmartWatch</English>
+            <German>SmartWatch</German>
+        </Translation>
+		
+		<Translation Key="H_PickupSW">
+            <English>Pickup the</English>
+            <German>Nimm die</German>
+        </Translation>
+
+		<Translation Key="H_WearSW">
+            <English>wear it on your left hand</English>
+            <German>trage sie an deiner linken Hand</German>
+        </Translation>
+		<!-- -->
+		
+
+        <!-- Throw Crystal Hint -->
+        <Translation Key="H_GoldenCrystal">
+            <English>Golden Crystal</English>
+            <German>Goldener Kristall</German>
+        </Translation>
+
+        <Translation Key="H_ThrowHere">
+            <English>Throw here</English>
+            <German>Hierher werfen</German>
+        </Translation>
+
+        <Translation Key="H_OpenMenuInventory">
+            <English>It will Open the Menu/Inventory</English>
+            <German>Öffnet das Menü/Inventar</German>
+        </Translation>
+
+        <Translation Key="H_OpenMenuGrab">
+            <English>To open Menu: grab</English>
+            <German>Um das Menü zu öffnen: greife</German>
+        </Translation>
+        <!-- -->
+
+    
+        <!-- Teleport Hint -->
+        <Translation Key="H_PressHoldDisk">
+            <English>Press and Hold Glowing Disk</English>
+            <German>Drücke und halte die leuchtende Scheibe</German>
+        </Translation>
+        <!-- -->
+
+        <!-- Grab Hint -->
+        <Translation Key="H_GrabItem">
+            <English>Grab item</English>
+            <German>Ergreife das Object</German>
+        </Translation>
+
+        <Translation Key="H_PressHoldArea">
+            <English>Press and Hold Red Area</English>
+            <German>Drücke und Halte den roten Bereich</German>
+        </Translation>
+
+        <Translation Key="H_ReleaseThrowObj">
+            <English>Release the area to throw the objects</English>
+            <German>Freilassen um das Objekt zu werfen</German>
+        </Translation>
+        <!-- -->
+
+        <!-- Hover Hint -->
+        <Translation Key="H_OpenWatch">
+            <English>Open Watch</English>
+            <German>die Uhr öffnen</German>
+        </Translation>
+
+        <Translation Key="H_Hover">
+            <English>Hover the glowing rings on the watch face</English>
+            <German>Führe die leuchtenden Ringe über das Ziffernblatt der Uhr</German>
+        </Translation>
+        <!-- -->
+
+        
+	</Translations>
+</LanguageManager>
