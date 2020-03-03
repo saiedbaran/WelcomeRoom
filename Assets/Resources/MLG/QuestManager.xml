@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageManager>
+    <Translations>        
+        
+        <Translation Key="QM_Move">
+            <English>Move inside the room</English>
+            <German>Bewege dich im Raum</German>
+        </Translation>
+
+	    <Translation Key="QM_MovePhysically">
+            <English>Try to Move Physically</English>
+            <German>Bewege dich physisch</German>
+        </Translation>
+
+        <Translation Key="QM_LearnTeleport">
+            <English>Learn Teleportation system</English>
+            <German>Lerne das Teleportsystem kennen</German>
+        </Translation>
+
+        <Translation Key="QM_OpenQuestManager">
+            <English>Open the Quest Manager</English>
+            <German>Öffne den Quest Manager</German>
+        </Translation>
+
+        <Translation Key="QM_LearnGrab">
+            <English>Learn to grab objects</English>
+            <German>Erlerne Objekte zu greifen</German>
+        </Translation>
+
+        <Translation Key="QM_TakeQuestManagerObj">
+            <English>Take the QuestManager object and throw it</English>
+            <German>Nimm das QuestManager-Objekt und wirf es</German>
+        </Translation>
+
+        <Translation Key="QM_WearSmartWatch">
+            <English>Wear the smartwatch</English>
+            <German>Trage die Smartwatch</German>
+        </Translation>
+
+        <Translation Key="QM_GrabSmartWatch">
+            <English>Grab the watch on the table</English>
+            <German>Nimm die Uhr vom Tisch</German>
+        </Translation>
+
+        <Translation Key="QM_WearSmartWatchOnLeftHand">
+            <English>Wear the watch on your left hand</English>
+            <German>Trage die Uhr an deiner linken Hand</German>
+        </Translation>
+
+        <Translation Key="QM_OpenMenu">
+            <English>Open the Menu/Inventory</English>
+            <German>Öffne das Menü/Inventar</German>
+        </Translation>
+
+        <Translation Key="QM_LearnHoveringInteraction">
+            <English>Learn hovering interaction</English>
+            <German>Berühre das Ziffernblatt der Uhr</German>
+        </Translation>
+
+        <Translation Key="QM_GrabCrystal">
+            <English>Grab the golden crystal</English>
+            <German>Ergreife den goldenen Kristall</German>
+        </Translation>
+
+        <Translation Key="QM_ThrowCrystal">
+            <English>Throw the crystal on green area</English>
+            <German>Wirf den Kristall in den grünen Bereich</German>
+        </Translation>
+
+        <!-- QuestManager Hint -->
+        <Translation Key="QM_DragDownHint">
+            <English>Drag Down for</English>
+            <German>Herunterziehen für</German>
+        </Translation>
+
+        <Translation Key="QM_NextQuestHint">
+            <English>Next Quest</English>
+            <German>nächste Aufgabe</German>
+        </Translation>
+
+    </Translations>
+</LanguageManager>

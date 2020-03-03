@@ -2068,7 +2068,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_firstOverflowCharacterIndex: -1
@@ -2131,6 +2131,7 @@ GameObject:
   - component: {fileID: 697314198781765392}
   - component: {fileID: 2213028258721270605}
   - component: {fileID: 389902012211958730}
+  - component: {fileID: 8697613948494366843}
   m_Layer: 0
   m_Name: Text (TMP) (2)
   m_TagString: Untagged
@@ -2272,10 +2273,10 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 27
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -2304,7 +2305,7 @@ MonoBehaviour:
     spaceCount: 7
     wordCount: 8
     linkCount: 0
-    lineCount: 2
+    lineCount: 1
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -2322,6 +2323,20 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   m_maskType: 0
+--- !u!114 &8697613948494366843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2633409388136744145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e8b7aba6512fd4f8fb682083590a33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: H_Hover
+  suffix: 
 --- !u!1 &2791243833442914588
 GameObject:
   m_ObjectHideFlags: 0
@@ -2498,6 +2513,7 @@ GameObject:
   - component: {fileID: 1298169579757257275}
   - component: {fileID: 1906957152499189850}
   - component: {fileID: 1017302541098554151}
+  - component: {fileID: 1084336010535758883}
   m_Layer: 0
   m_Name: current
   m_TagString: Untagged
@@ -2639,7 +2655,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_firstOverflowCharacterIndex: -1
@@ -2689,6 +2705,20 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   m_maskType: 0
+--- !u!114 &1084336010535758883
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3437113468158588203}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e8b7aba6512fd4f8fb682083590a33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: H_Question
+  suffix: 
 --- !u!1 &3575894630449995938
 GameObject:
   m_ObjectHideFlags: 0
@@ -3056,6 +3086,7 @@ GameObject:
   - component: {fileID: 2699340462228775534}
   - component: {fileID: 7009938464724255737}
   - component: {fileID: 7640006473854173896}
+  - component: {fileID: 9185983027793017506}
   m_Layer: 0
   m_Name: Text (TMP) (2)
   m_TagString: Untagged
@@ -3197,7 +3228,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_firstOverflowCharacterIndex: -1
@@ -3247,6 +3278,20 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   m_maskType: 0
+--- !u!114 &9185983027793017506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4803805697842956065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e8b7aba6512fd4f8fb682083590a33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: H_PressHoldDisk
+  suffix: 
 --- !u!1 &5070903708058317308
 GameObject:
   m_ObjectHideFlags: 0
@@ -3401,7 +3446,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_firstOverflowCharacterIndex: -1
@@ -3428,10 +3473,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 7.886283, w: 0}
   m_textInfo:
     textComponent: {fileID: 7065429946526308653}
-    characterCount: 10
+    characterCount: 12
     spriteCount: 0
-    spaceCount: 2
-    wordCount: 2
+    spaceCount: 3
+    wordCount: 3
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -3590,6 +3635,7 @@ GameObject:
   - component: {fileID: 5375385544348659017}
   - component: {fileID: 7983618012892023646}
   - component: {fileID: 219621836226913715}
+  - component: {fileID: 4707489851357855282}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -3731,7 +3777,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_firstOverflowCharacterIndex: -1
@@ -3781,6 +3827,20 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   m_maskType: 0
+--- !u!114 &4707489851357855282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5655637355131146274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e8b7aba6512fd4f8fb682083590a33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: H_GrabItem
+  suffix: '!'
 --- !u!1 &5911877228281520949
 GameObject:
   m_ObjectHideFlags: 0
@@ -3794,6 +3854,7 @@ GameObject:
   - component: {fileID: 2304601443086291958}
   - component: {fileID: 5852262367873781024}
   - component: {fileID: 3606926057037994231}
+  - component: {fileID: 9162288823364921597}
   m_Layer: 0
   m_Name: Text (TMP) (3)
   m_TagString: Untagged
@@ -3935,10 +3996,10 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 30
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -3967,7 +4028,7 @@ MonoBehaviour:
     spaceCount: 6
     wordCount: 7
     linkCount: 0
-    lineCount: 2
+    lineCount: 1
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -3985,6 +4046,20 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   m_maskType: 0
+--- !u!114 &9162288823364921597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5911877228281520949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e8b7aba6512fd4f8fb682083590a33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: H_ReleaseThrowObj
+  suffix: 
 --- !u!1 &5929763250910846645
 GameObject:
   m_ObjectHideFlags: 0
@@ -3998,6 +4073,7 @@ GameObject:
   - component: {fileID: 6246256133176730590}
   - component: {fileID: 8285952884586546633}
   - component: {fileID: 2250212749089450788}
+  - component: {fileID: 4935345052772371544}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -4139,7 +4215,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_firstOverflowCharacterIndex: -1
@@ -4189,6 +4265,20 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   m_maskType: 0
+--- !u!114 &4935345052772371544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5929763250910846645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e8b7aba6512fd4f8fb682083590a33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: Teleport
+  suffix: '!'
 --- !u!1 &6289875039928341000
 GameObject:
   m_ObjectHideFlags: 0
@@ -4202,6 +4292,7 @@ GameObject:
   - component: {fileID: 5351241628191059175}
   - component: {fileID: 3349930900948955484}
   - component: {fileID: 889367729053373701}
+  - component: {fileID: 8337786707652098413}
   m_Layer: 0
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -4343,7 +4434,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_firstOverflowCharacterIndex: -1
@@ -4393,6 +4484,20 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   m_maskType: 0
+--- !u!114 &8337786707652098413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6289875039928341000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e8b7aba6512fd4f8fb682083590a33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: H_OpenWatch
+  suffix: 
 --- !u!1 &6815113721627211262
 GameObject:
   m_ObjectHideFlags: 0
@@ -4446,6 +4551,7 @@ GameObject:
   - component: {fileID: 4126396420348275961}
   - component: {fileID: 9042754795496918382}
   - component: {fileID: 8516550020914351199}
+  - component: {fileID: 6217988946802679072}
   m_Layer: 0
   m_Name: Text (TMP) (2)
   m_TagString: Untagged
@@ -4587,7 +4693,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_firstOverflowCharacterIndex: -1
@@ -4637,6 +4743,20 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   m_maskType: 0
+--- !u!114 &6217988946802679072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6817490663783532982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e8b7aba6512fd4f8fb682083590a33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: H_PressHoldArea
+  suffix: 
 --- !u!1 &7144104485148433696
 GameObject:
   m_ObjectHideFlags: 0

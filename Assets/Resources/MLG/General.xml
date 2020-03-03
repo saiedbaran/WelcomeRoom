@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LanguageManager>
+    <Translations>
+		
+        <Translation Key="WellDone">
+            <English>Well Done</English>
+            <German>Gut gemacht</German>
+        </Translation>
+
+		<Translation Key="FirstQuest">
+            <English>The First Quest</English>
+            <German>Die erste Aufgabe</German>
+        </Translation>
+
+        <Translation Key="QuestManager">
+            <English>Quest Manager</English>
+            <German>Quest Manager</German>
+        </Translation>
+
+        <Translation Key="Inventory">
+            <English>Inventory</English>
+            <German>Inventar</German>
+        </Translation>
+
+        <Translation Key="Volume">
+            <English>Volume</English>
+            <German>Lautstärke</German>
+        </Translation>
+
+        <Translation Key="Exit">
+            <English>Exit</English>
+            <German>Beenden</German>
+        </Translation>
+
+        <Translation Key="Teleport">
+            <English>Teleport</English>
+            <German>Teleport</German>
+        </Translation>
+
+        <Translation Key="Repeat">
+            <English>repeat</English>
+            <German>wiederhole</German>
+        </Translation>
+
+
+	</Translations>
+</LanguageManager>

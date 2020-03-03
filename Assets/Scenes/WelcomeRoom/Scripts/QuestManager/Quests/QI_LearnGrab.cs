@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Localization;
 using UnityEngine;
 using Valve.VR;
 using TMPro;
@@ -26,6 +27,7 @@ namespace WelcomeRoom.QuestManager
 
         void Update()
         {
+            ModifyText();
 
             if (gameObject.GetComponent<SubQuest>().IsActive)
             {
@@ -41,7 +43,6 @@ namespace WelcomeRoom.QuestManager
                 if (GrabAction.GetStateUp(SteamVR_Input_Sources.Any))
                 {
                     _tryNumber++;
-                    ModifyText();
                 }
 
                 if (_tryNumber >= MaxTryNumber)
@@ -56,10 +57,10 @@ namespace WelcomeRoom.QuestManager
         {
             foreach (var helper in Helpers)
             {
-                //if (helper.Current.GetComponent<TextMeshPro>())
-                //{ helper.Current.GetComponent<TextMeshPro>().text = _tryNumber.ToString(); }
                 if (helper.Total.GetComponent<TextMeshPro>())
-                { helper.Total.GetComponent<TextMeshPro>().text = _tryNumber.ToString() + " / " + MaxTryNumber + " repeat"; }
+                {
+                    helper.Total.GetComponent<TextMeshPro>().text = $"{_tryNumber} / {MaxTryNumber} {LanguageManager.Instance.GetString("Repeat")}";
+                }
             }
         }
         private void QuestDone()
