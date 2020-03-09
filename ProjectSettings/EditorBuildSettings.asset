@@ -8,7 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/WelcomeRoom.unity
     guid: cbfe36cfddfde964d9dfce63a355d5dd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/WR_RM.unity
     guid: 17714e84ec34d5e44a7bebfbae6bb274
+  - enabled: 1
+    path: Assets/Scenes/WR_RM(OpenLabDay).unity
+    guid: 13f3229d5cf5b5a46925f056e790210f
   m_configObjects: {}
