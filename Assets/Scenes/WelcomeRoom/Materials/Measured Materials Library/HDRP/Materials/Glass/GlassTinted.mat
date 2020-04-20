@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: GlassTinted
-  m_Shader: {fileID: -6465566751694194690, guid: faca4c7ebf7c38748ba940e60438e86b,
+  m_Shader: {fileID: -6465566751694194690, guid: bced5ef65606eca409f5a061e0b7ac8f,
     type: 3}
   m_ShaderKeywords: _BLENDMODE_ALPHA _SURFACE_TYPE_TRANSPARENT
   m_LightmapFlags: 4
@@ -33,6 +33,7 @@ Material:
     RenderType: Transparent
   disabledShaderPasses:
   - MOTIONVECTORS
+  - TransparentBackface
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -121,7 +122,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_2A54A859: 0.145
+    - Vector1_2A54A859: 0.834
+    - Vector1_362F3A37: 10
     - Vector1_4127C06D: 0.042
     - Vector1_41897A09: 1
     - Vector1_78F37C84: 2.5
@@ -250,7 +252,8 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - Color_DCF1FFF3: {r: 0.103061534, g: 0.1132075, b: 0.10644352, a: 0.72156864}
+    - Color_60AA0B6: {r: 220.26176, g: 57.660145, b: 0, a: 0}
+    - Color_DCF1FFF3: {r: 0.1030614, g: 0.11320733, b: 0.10644337, a: 0.6313726}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}

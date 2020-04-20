@@ -2,13 +2,13 @@
   "source": "Unity",
   "applications": [
     {
-      "app_key": "application.generated.unity.welcomeroom.exe",
+      "app_key": "application.generated.unity.gear.welcomeroom.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\ssafi\\Documents\\WelcomeRoom\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "D:\\Unity Project\\WelcomeRoom\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
-          "name": "WelcomeRoom [Testing]"
+          "name": "gear.WelcomeRoom [Testing]"
         }
       }
     }
