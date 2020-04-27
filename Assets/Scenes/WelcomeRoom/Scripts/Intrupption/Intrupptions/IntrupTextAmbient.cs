@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Rendering.HighDefinition;
 
 public enum LightingType
@@ -7,13 +8,17 @@ public enum LightingType
     Flowing
 }
 
-[ExecuteInEditMode]
 public class IntrupTextAmbient : MonoBehaviour, IIntruption
 {
+    [Header("Quest Hint")]
+    [SerializeField] GameObject questObject;
+    [SerializeField] GameObject questText, continueText;
+
+    [Header("Lighting Parameters")]
     [SerializeField] GameObject ambientLight;
     [SerializeField] LightingType lightingType;
     [SerializeField] float AmbientLightIntensity;
-    [SerializeField] float SuccessThresholdAngle = 5f;
+    [SerializeField] float SuccessThresholdAngle = 15f;
     [SerializeField] float RemainingIntesity = 10000f;
 
     [Header("Flashing Parameters")]
@@ -28,13 +33,23 @@ public class IntrupTextAmbient : MonoBehaviour, IIntruption
     public float dTimeNotification;
     public float dTimeTask;
 
+    public OnNotificationCatch onNotification;
+
     private float _timer;
-    public float _measuringStartTime, _measuringEndTime;
+    private float _measuringStartTime, _measuringEndTime;
     private float _angle;
     private bool _isLighting = false;
+
+    private bool _isDone = false;
+
+    void Start()
+    {
+        if (onNotification == null)
+            onNotification = new OnNotificationCatch();
+    }
+
     public void OnBeginIntrupption()
     {
-        Debug.Log("Capturing Time");
         _measuringStartTime = Time.time;
         _isLighting = true;
     }
@@ -45,7 +60,20 @@ public class IntrupTextAmbient : MonoBehaviour, IIntruption
         dTimeTotal = _measuringEndTime - _measuringStartTime;
         dTimeTask = dTimeTotal - dTimeNotification;
 
+        IntrupptionManager.Instance.InvokeEvents(
+            IntrupptionManager.Instance.PrefixUnityAnalytic + DateTime.Now + ":" + "Task",
+            (this.name + ": Task: Player "),
+            dTimeTask
+            );
+
         ambientLight.gameObject.SetActive(false);
+        questObject.SetActive(false);
+        questText.SetActive(false);
+        continueText.SetActive(true);
+
+        IntrupptionManager.Instance.activationDevice.GetComponent<PuzzleManager>().ContinuePuzzle();
+
+        _isDone = true;
     }
 
     private void Update()
@@ -57,14 +85,9 @@ public class IntrupTextAmbient : MonoBehaviour, IIntruption
             LightingMethod();
         }
 
-        if(_angle < SuccessThresholdAngle && _isLighting)
-        {
-            dTimeNotification = Time.time - _measuringStartTime;
 
-            _isLighting = false;
-        }
 
-        if (CheckSuccess()) { OnEndIntruption(); }
+        if (CheckSuccess()) { ActiveQuest(); }
     }
 
     private void LightingMethod()
@@ -88,7 +111,33 @@ public class IntrupTextAmbient : MonoBehaviour, IIntruption
 
     public bool CheckSuccess()
     {
-        if (_angle < SuccessThresholdAngle) { return true; }
+        if (_angle < SuccessThresholdAngle && _isLighting)
+        {
+            dTimeNotification = Time.time - _measuringStartTime;
+
+            _isLighting = false;
+
+            return true;
+        }
+
         return false;
+    }
+
+    public void ActiveQuest()
+    {
+        // Active Quest Object
+        questObject.SetActive(true);
+
+        // Invoke Unity Analytics Events
+        IntrupptionManager.Instance.InvokeEvents(
+            IntrupptionManager.Instance.PrefixUnityAnalytic + DateTime.Now + ":" + "Notification",
+            (this.name + ": Notification: Player "),
+            dTimeNotification
+            );
+    }
+
+    public bool isDone()
+    {
+        return _isDone;
     }
 }

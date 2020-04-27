@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public int PlayerID = 0;
+
     [SerializeField] public GameObject Inventory;
     [SerializeField] public GameObject MenuSpace;
     [SerializeField] public GameObject QuestManagement;

@@ -10,10 +10,9 @@ public class IntrupHaptic : MonoBehaviour, IIntruption
 
     public SteamVR_Action_Vibration HapticAction;
     public SteamVR_Action_Boolean TrackPadAction;
-    void Start()
-    {
 
-    }
+    private bool _isDone = false;
+
 
     void Update()
     {
@@ -32,11 +31,17 @@ public class IntrupHaptic : MonoBehaviour, IIntruption
 
     public void OnEndIntruption()
     {
+        _isDone = true;
     }
 
     public bool CheckSuccess()
     {
         return false;
+    }
+
+    public bool isDone()
+    {
+        return _isDone;
     }
 }
 

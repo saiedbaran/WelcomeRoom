@@ -402,15 +402,15 @@ MonoBehaviour:
     min: 0.1
   nearFocusStart:
     m_OverrideState: 1
-    m_Value: 0.71
+    m_Value: 0
     min: 0
   nearFocusEnd:
     m_OverrideState: 1
-    m_Value: 2.15
+    m_Value: 2.76
     min: 0
   farFocusStart:
     m_OverrideState: 1
-    m_Value: 2.48
+    m_Value: 6.75
     min: 0
   farFocusEnd:
     m_OverrideState: 1

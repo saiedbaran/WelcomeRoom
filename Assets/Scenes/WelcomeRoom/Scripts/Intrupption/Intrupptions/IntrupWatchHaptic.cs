@@ -9,6 +9,8 @@ public class IntrupWatchHaptic : MonoBehaviour, IIntruption
 {
     [Header("Quest Hint")]
     [SerializeField] GameObject target;
+    [SerializeField] GameObject questObject;
+    [SerializeField] GameObject questText, continueText;
 
     [Header("Haptic Parameters")]
     public SteamVR_Action_Vibration HapticAction;
@@ -31,6 +33,16 @@ public class IntrupWatchHaptic : MonoBehaviour, IIntruption
     private RadarArrow _radarArrow;
     private bool _isPulsing;
     private bool _isLighting;
+
+    public OnNotificationCatch onNotification;
+
+    private bool _isDone;
+
+    void Start()
+    {
+        if (onNotification == null)
+            onNotification = new OnNotificationCatch();
+    }
 
 
     public bool CheckSuccess()
@@ -61,7 +73,21 @@ public class IntrupWatchHaptic : MonoBehaviour, IIntruption
         dTimeTotal = Time.time - _measuringStartTime;
         dTimeTask = dTimeTotal - dTimeNotification;
 
+        IntrupptionManager.Instance.InvokeEvents(
+            IntrupptionManager.Instance.PrefixUnityAnalytic + DateTime.Now + ":" + "Task",
+            (this.name + ": Task: Player "),
+            dTimeTask
+            );
+
         _radarArrow.DeactiveRadar();
+
+        questObject.SetActive(false);
+        questText.SetActive(false);
+        continueText.SetActive(true);
+
+        IntrupptionManager.Instance.activationDevice.GetComponent<PuzzleManager>().ContinuePuzzle();
+
+        _isDone = true;
     }
 
     private void Update()
@@ -80,6 +106,16 @@ public class IntrupWatchHaptic : MonoBehaviour, IIntruption
             _radarArrow.ActiveRadar(target);
 
             dTimeNotification = Time.time - _measuringStartTime;
+
+            // Invoke Unity Analytics Events
+            IntrupptionManager.Instance.InvokeEvents(
+                IntrupptionManager.Instance.PrefixUnityAnalytic + DateTime.Now + ":" + "Notification",
+                (this.name + ": Notification: Player "),
+                dTimeNotification
+                );
+
+            // Active Quest Object
+            questObject.SetActive(true);
         }
 
     }
@@ -96,5 +132,10 @@ public class IntrupWatchHaptic : MonoBehaviour, IIntruption
     private void Pulse(float duration, float frequency, float amplitude, SteamVR_Input_Sources Source)
     {
         HapticAction.Execute(0, duration, frequency, amplitude, Source);
+    }
+
+    public bool isDone()
+    {
+        return _isDone;
     }
 }
