@@ -12,11 +12,6 @@ public class ScreenText : MonoBehaviour
         _textField = GetComponent<TextMeshPro>();
     }
 
-    void Update()
-    {
-        
-    }
-
     public void UpdateTextField(int InputNumber)
     {
         if (playerId < 100 && InputNumber >= 0)

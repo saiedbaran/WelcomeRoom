@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Analytics;
@@ -31,27 +32,46 @@ class IntrupptionManager : MonoBehaviour
     public GameObject activationDevice;
 
     [Header("Interruptions")]
-    [SerializeField] List<GameObject> Interruptions = new List<GameObject>();
-    public List<int> executeInterruptionOrder;
     public bool useRandomList = false;
+    //[SerializeField] List<GameObject> Interruptions = new List<GameObject>();
+    public List<InterruptionCollection> InterruptionCollections = new List<InterruptionCollection>();
+    public List<int> StudyList = new List<int>();
 
     [Header("Parameters")]
     public float InterruptionDelay = 10.0f;
+    public int StartingNumber = 100;
     public string PrefixUnityAnalytic = "Prototype: ";
+    public int CurrentCase;
 
 
     //public IIntruption currentIntruption;
 
     public int currentInterruptionId { get; set; }
+    public int currentIntCollId { get; set; }
 
-    private float _beginTime,_timeSinceBegin;
+    private float _beginTime, _timeSinceBegin;
     private bool _activeTimer;
     private int _id = 0;
+    private List<int> executeInterruptionOrder = new List<int>();
+    private List<GameObject> Interruptions = new List<GameObject>();
 
     private void Start()
     {
+        InitializeInterruption();
+    }
+
+    public void InitializeInterruption()
+    {
+        InterruptionListGenerator();
+        Interruptions = InterruptionCollections[StudyList[currentIntCollId]].Interruptions;
+
+        for (int i = 0; i < InterruptionCollections.Count; i++)
+        {
+            executeInterruptionOrder.Add(i);
+        }
+
         if (useRandomList) { RandomList.RandomIntList(executeInterruptionOrder); }
-        
+
         currentInterruptionId = executeInterruptionOrder[_id];
     }
 
@@ -84,7 +104,7 @@ class IntrupptionManager : MonoBehaviour
         if (Interruptions[currentInterruptionId].GetComponent<IIntruption>().isDone())
         {
             _id++;
-            if(_id == executeInterruptionOrder.Count) { Application.Quit(); }
+            if (_id == executeInterruptionOrder.Count) { FinishInterrupptionCollection(); }
             currentInterruptionId = executeInterruptionOrder[_id];
         }
 
@@ -92,6 +112,17 @@ class IntrupptionManager : MonoBehaviour
         Interruptions[currentInterruptionId].GetComponent<IIntruption>().OnBeginIntrupption();
 
         tangramPuzzle.SetActive(false);
+    }
+
+    private void FinishInterrupptionCollection()
+    {
+        _id = 0;
+        currentIntCollId++;
+        executeInterruptionOrder.Clear();
+
+        InitializeInterruption();
+
+        //Application.Quit();
     }
 
     public GameObject CurrentInterruption()
@@ -119,6 +150,21 @@ class IntrupptionManager : MonoBehaviour
     }
 
 
+    private void InterruptionListGenerator()
+    {
+        var numberOfInterruptions = InterruptionCollections.Count;
+
+        var tempInterruptionOrder = new List<int>();
+        for (int i = 0; i < numberOfInterruptions; i++)
+        {
+            tempInterruptionOrder.Add(i);
+        }
+
+        var PermutateCollection = AdditionalMath.Permutate(tempInterruptionOrder, tempInterruptionOrder.Count);
+
+        StudyList = PermutateCollection.ElementAt(CurrentCase) as List<int>;
+    }
+
 }
 
 [System.Serializable]
@@ -131,3 +177,4 @@ public class OnEndCatch : UnityEvent
 {
 
 }
+
