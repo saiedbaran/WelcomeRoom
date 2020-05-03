@@ -33,11 +33,12 @@ class IntrupptionManager : MonoBehaviour
     [Header("Interruptions")]
     [SerializeField] List<GameObject> Interruptions = new List<GameObject>();
     public List<int> executeInterruptionOrder;
+    public bool useRandomList = false;
 
     [Header("Parameters")]
     public float InterruptionDelay = 10.0f;
-
     public string PrefixUnityAnalytic = "Prototype: ";
+
 
     //public IIntruption currentIntruption;
 
@@ -49,6 +50,8 @@ class IntrupptionManager : MonoBehaviour
 
     private void Start()
     {
+        if (useRandomList) { RandomList.RandomIntList(executeInterruptionOrder); }
+        
         currentInterruptionId = executeInterruptionOrder[_id];
     }
 

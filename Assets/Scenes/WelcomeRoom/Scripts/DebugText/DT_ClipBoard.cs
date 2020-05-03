@@ -16,7 +16,7 @@ public class DT_ClipBoard : MonoBehaviour
         textFields[2].text = "Current Interruption ID: " + IntrupptionManager.Instance.currentInterruptionId;
         textFields[3].text = "Interruption Done? " + IntrupptionManager.Instance.CurrentInterruption().GetComponent<IIntruption>().isDone();
         textFields[4].text = "Time since begin: " + IntrupptionManager.Instance.GetTimeSinceBegin();
-        textFields[6].text = "Debug Log: " + this.name;
+        //textFields[6].text = "Debug Log: " + this.name;
     }
 
 }
