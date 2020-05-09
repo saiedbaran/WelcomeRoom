@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Questionnaire>
+    <SUS>
+        <Question>
+
+            <DefaultText>I think that I would use WelcomeRoom for learning VR interactions</DefaultText>
+
+            <MinRange>Strongly disagree</MinRange>
+            <MaxRange>Strongly agree</MaxRange>
+
+        </Question>
+
+        <Question>
+
+            <DefaultText>I found the WelcomeRoom unnecessarily complex</DefaultText>
+
+            <MinRange>Strongly disagree</MinRange>
+            <MaxRange>Strongly agree</MaxRange>
+
+        </Question>
+
+        <Question>
+
+            <DefaultText>I thought the WelcomeRoom was easy to use</DefaultText>
+
+            <MinRange>Strongly disagree</MinRange>
+            <MaxRange>Strongly agree</MaxRange>
+
+        </Question>
+
+        <Question>
+
+            <DefaultText>I think that I would need the support of a technical person to be able to use the WelcomeRoom</DefaultText>
+
+            <MinRange>Strongly disagree</MinRange>
+            <MaxRange>Strongly agree</MaxRange>
+
+        </Question>
+
+        <Question>
+
+            <DefaultText>I found the various functions in the WelcomeRoom were well integrated</DefaultText>
+
+            <MinRange>Strongly disagree</MinRange>
+            <MaxRange>Strongly agree</MaxRange>
+
+        </Question>
+
+        <Question>
+
+            <DefaultText>I thought there was too much inconsistency in the WelcomeRoom</DefaultText>
+
+            <MinRange>Strongly disagree</MinRange>
+            <MaxRange>Strongly agree</MaxRange>
+
+        </Question>
+
+        <Question>
+
+            <DefaultText>I would imagine that most people would learn to use VR very quickly by using the WelcomeRoom</DefaultText>
+
+            <MinRange>Strongly disagree</MinRange>
+            <MaxRange>Strongly agree</MaxRange>
+
+        </Question>
+
+        <Question>
+
+            <DefaultText>I found the WelcomeRoom very cumbersome to use</DefaultText>
+
+            <MinRange>Strongly disagree</MinRange>
+            <MaxRange>Strongly agree</MaxRange>
+
+        </Question>
+
+        <Question>
+
+            <DefaultText>I felt very confident using the WelcomeRoom</DefaultText>
+
+            <MinRange>Strongly disagree</MinRange>
+            <MaxRange>Strongly agree</MaxRange>
+
+        </Question>
+
+        <Question>
+
+            <DefaultText>I needed to learn a lot of things before I could work with the WelcomeRoom</DefaultText>
+
+            <MinRange>Strongly disagree</MinRange>
+            <MaxRange>Strongly agree</MaxRange>
+
+        </Question>
+
+    </SUS>
+</Questionnaire>

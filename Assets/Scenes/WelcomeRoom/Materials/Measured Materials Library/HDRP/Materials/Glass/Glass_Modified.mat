@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Glass
+  m_Name: Glass_Modified
   m_Shader: {fileID: -6465566751694194690, guid: faca4c7ebf7c38748ba940e60438e86b,
     type: 3}
   m_ShaderKeywords: _BLENDMODE_ALPHA _SURFACE_TYPE_TRANSPARENT
@@ -19,8 +19,8 @@ Material:
     MotionVector: User
     RenderType: Transparent
   disabledShaderPasses:
-  - MOTIONVECTORS
   - TransparentBackface
+  - MOTIONVECTORS
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -112,7 +112,7 @@ Material:
     - Vector1_2A54A859: 0.145
     - Vector1_4127C06D: 0.042
     - Vector1_41897A09: 1
-    - Vector1_78F37C84: 2.5
+    - Vector1_78F37C84: 1
     - Vector1_7D60D184: 0.806
     - Vector1_83B39A02: 0.179
     - Vector1_B8A2FB56: 1

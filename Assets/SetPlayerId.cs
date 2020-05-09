@@ -5,7 +5,7 @@ using UnityEngine;
 
 public enum StudyCase
 {
-    A,B,C,D,E,F
+    A, B, C, D, E, F
 }
 
 public class SetPlayerId : MonoBehaviour
@@ -17,6 +17,8 @@ public class SetPlayerId : MonoBehaviour
         GameManager.Instance.PlayerID = screenText.playerId;
 
         IntrupptionManager.Instance.CurrentCase = SetStudyCase(screenText.playerId);
+        IntrupptionManager.Instance.InterruptionListGenerator();
+        IntrupptionManager.Instance.InitializeInterruption();
     }
 
     private int SetStudyCase(int playerId)
@@ -29,5 +31,5 @@ public class SetPlayerId : MonoBehaviour
         return reminder;
     }
 
-    
+
 }

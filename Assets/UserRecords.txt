@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!49 &4900000
+TextAsset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: UserRecords
+  m_Script: "Response ID\tDate submitted\tLast page\tStart language\tDate started\tDate
+    last action\tIP address\tReferrer URL\tSUS - WelcomeRoom\tSUS - WelcomeRoom\tSUS
+    - WelcomeRoom\tSUS - WelcomeRoom\tSUS - WelcomeRoom\tSUS - WelcomeRoom\tSUS -
+    WelcomeRoom\tSUS - WelcomeRoom\tSUS - WelcomeRoom\tSUS - WelcomeRoom\t \_ iPQ
+    - WelcomeRoom \t \_ iPQ - WelcomeRoom \t \_ iPQ - WelcomeRoom \t \_ iPQ - WelcomeRoom
+    \t \_ iPQ - WelcomeRoom \t \_ iPQ - WelcomeRoom \t \_ iPQ - WelcomeRoom \t \_
+    iPQ - WelcomeRoom \t \_ iPQ - WelcomeRoom \t \_ iPQ - WelcomeRoom \t \_ iPQ -
+    WelcomeRoom \t \_ iPQ - WelcomeRoom \t \_ iPQ - WelcomeRoom \t \_ iPQ - WelcomeRoom
+    \t\nid\tsubmitdate\tlastpage\tstartlanguage\tstartdate\tdatestamp\tipaddr\trefurl\t242432X798X11285SQ001\t242432X798X11285SQ002\t242432X798X11285SQ003\t242432X798X11285SQ004\t242432X798X11285SQ005\t242432X798X11285SQ006\t242432X798X11285SQ007\t242432X798X11285SQ008\t242432X798X11285SQ009\t242432X798X11285SQ010\t242432X799X11306iPQ001\t242432X799X11306iPQ002\t242432X799X11306iPQ003\t242432X799X11306iPQ004\t242432X799X11306iPQ005\t242432X799X11306iPQ006\t242432X799X11306iPQ007\t242432X799X11306iPQ008\t242432X799X11306iPQ009\t242432X799X11306iPQ010\t242432X799X11306iPQ011\t242432X799X11306iPQ012\t242432X799X11306iPQ013\t242432X799X11306iPQ014\t\n999\t2020-05-06
+    01:41:08\t2\ten\t2020-05-06 01:40:34\t2020-05-06 01:41:08\t84.115.138.189\thttp://wlvi.iicm.edu/limesurvey/index.php/survey/index/sid/242432/newtest/Y/lang/en\t5\t2\t4\t1\t4\t1\t5\t1\t5\t1\t4\t1\t1\t4\t1\t5\t4\t5\t5\t5\t2\t4\t1\t5"

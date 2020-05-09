@@ -1,0 +1,11 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!49 &4900000
+TextAsset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MyText
+  m_Script: "Response ID\ttoken\tDate submitted\tLast page\tStart language\tSUS\_\tSUS\_\tSUS\_\tSUS\_\tSUS\_\tSUS\_\tSUS\_\tSUS\_\tSUS\_\tSUS\_\t\r\nid\ttoken\tsubmitdate\tlastpage\tstartlanguage\t488612X804X11332SQ001\t488612X804X11332SQ002\t488612X804X11332SQ003\t488612X804X11332SQ004\t488612X804X11332SQ005\t488612X804X11332SQ006\t488612X804X11332SQ007\t488612X804X11332SQ008\t488612X804X11332SQ009\t488612X804X11332SQ010\t\r\n313\t{question_not_shown}\t2020-05-04
+    17:27:00\t1\ten\t55\t2\t3\t4\t5\t4\t3\t2\t1\t5"

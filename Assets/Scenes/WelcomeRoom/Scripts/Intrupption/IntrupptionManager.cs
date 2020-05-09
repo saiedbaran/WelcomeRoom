@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Analytics;
 using UnityEngine.Events;
 using UnityEngine.Rendering;
+using System;
 
 public interface IIntruption
 {
@@ -30,6 +31,8 @@ class IntrupptionManager : MonoBehaviour
     [Header("Required Objects")]
     public GameObject tangramPuzzle;
     public GameObject activationDevice;
+    public GameObject InputDevice;
+    public GameObject QuestionnaireDevice;
 
     [Header("Interruptions")]
     public bool useRandomList = false;
@@ -41,7 +44,10 @@ class IntrupptionManager : MonoBehaviour
     public float InterruptionDelay = 10.0f;
     public int StartingNumber = 100;
     public string PrefixUnityAnalytic = "Prototype: ";
-    public int CurrentCase;
+    public int CurrentCase { get; set; }
+
+    [Header("Hints")]
+    public GameObject GoToQuestionnnaire;
 
 
     //public IIntruption currentIntruption;
@@ -57,12 +63,15 @@ class IntrupptionManager : MonoBehaviour
 
     private void Start()
     {
+        InterruptionListGenerator();
         InitializeInterruption();
     }
 
     public void InitializeInterruption()
     {
-        InterruptionListGenerator();
+        //InterruptionListGenerator(); //TODO: Remove this line
+        executeInterruptionOrder.Clear();
+
         Interruptions = InterruptionCollections[StudyList[currentIntCollId]].Interruptions;
 
         for (int i = 0; i < InterruptionCollections.Count; i++)
@@ -104,25 +113,39 @@ class IntrupptionManager : MonoBehaviour
         if (Interruptions[currentInterruptionId].GetComponent<IIntruption>().isDone())
         {
             _id++;
-            if (_id == executeInterruptionOrder.Count) { FinishInterrupptionCollection(); }
+            if (_id == executeInterruptionOrder.Count) { PreparationForNextInterruption(); }
             currentInterruptionId = executeInterruptionOrder[_id];
         }
 
         Interruptions[currentInterruptionId].SetActive(true);
         Interruptions[currentInterruptionId].GetComponent<IIntruption>().OnBeginIntrupption();
 
-        tangramPuzzle.SetActive(false);
+        //tangramPuzzle.SetActive(false);
+    }
+
+    public void PreparationForNextInterruption()
+    {
+        _id = 0;
+        currentIntCollId++;
+        //executeInterruptionOrder.Clear();
+
+        InputDevice.SetActive(false);
+        QuestionnaireDevice.SetActive(false);
+
+        activationDevice.GetComponent<PuzzleManager>().IsButtonActive = true;
+
+        InitializeInterruption();
     }
 
     private void FinishInterrupptionCollection()
     {
-        _id = 0;
-        currentIntCollId++;
-        executeInterruptionOrder.Clear();
+        Application.Quit();
+    }
 
-        InitializeInterruption();
-
-        //Application.Quit();
+    public void BeginQuestionnaire()
+    {
+        InputDevice.SetActive(false);
+        QuestionnaireDevice.SetActive(true);
     }
 
     public GameObject CurrentInterruption()
@@ -134,6 +157,14 @@ class IntrupptionManager : MonoBehaviour
     public float GetTimeSinceBegin()
     {
         return _timeSinceBegin;
+    }
+
+    public bool isLastInterruptionList()
+    {
+        var nextId = _id + 1;
+
+        if (nextId == executeInterruptionOrder.Count) { return true; }
+        return false;
     }
 
     public void InvokeEvents(string eventName, string exportType, float value)
@@ -150,7 +181,7 @@ class IntrupptionManager : MonoBehaviour
     }
 
 
-    private void InterruptionListGenerator()
+    public void InterruptionListGenerator()
     {
         var numberOfInterruptions = InterruptionCollections.Count;
 

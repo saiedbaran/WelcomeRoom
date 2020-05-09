@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "com.gear.limesurveyuploader": "https://github.com/GamesResearchTUG/gearUtilities.git#package/limesurveyuploader",
+    "com.gear.utilities": "https://github.com/GamesResearchTUG/gearUtilities.git#package/utilities",
     "com.unity.analytics": "3.3.5",
     "com.unity.collab-proxy": "1.2.16",
     "com.unity.ide.rider": "1.1.4",
@@ -44,5 +46,15 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0"
+  },
+  "lock": {
+    "com.gear.limesurveyuploader": {
+      "revision": "package/limesurveyuploader",
+      "hash": "af30377d2e827794a147e37d21e81efa6931dddc"
+    },
+    "com.gear.utilities": {
+      "revision": "package/utilities",
+      "hash": "6d452a19dec4d05c99f090fe82ec61a344d60fe7"
+    }
   }
 }

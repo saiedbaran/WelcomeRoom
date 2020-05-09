@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Questionnaire>
+    <iPQ>
+        <Question>
+
+            <DefaultText>How aware were you of the real world surrounding while navigating in the WelcomeRoom?</DefaultText>
+
+            <MinRange>Extremely aware</MinRange>
+            <MaxRange>Not aware at all</MaxRange>
+
+        </Question>
+
+        <Question>
+
+            <DefaultText>How real did the WelcomeRoom seem to you?</DefaultText>
+
+            <MinRange>completely real</MinRange>
+            <MaxRange>not real at all</MaxRange>
+
+        </Question>
+
+    </iPQ>
+</Questionnaire>
