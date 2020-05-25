@@ -75,7 +75,7 @@ public class QuestionnaireDevice : MonoBehaviour
 
     private void UploadQuestionnaireData()
     {
-        AssetDatabase.Refresh();
+        //AssetDatabase.Refresh();
 
         var tempText = SurveyTemplate.text;
         foreach (var record in QuestionnaireRecords)
@@ -85,7 +85,7 @@ public class QuestionnaireDevice : MonoBehaviour
         tempText = tempText.Replace("UserID", GameManager.Instance.PlayerID.ToString());
 
         var userRecords = new TextAsset(tempText);
-        AssetDatabase.CreateAsset(userRecords, "Assets/UserRecords.txt");
+        //AssetDatabase.CreateAsset(userRecords, "Assets/UserRecords.txt"); TODO: Save the file lateron
 
         UploaderPrefab.StartUpload(userRecords);
     }

@@ -19,7 +19,7 @@ public class TestCall_LimeServey : MonoBehaviour
 
     void UploadText()
     {
-        AssetDatabase.Refresh();
+        //AssetDatabase.Refresh();
         
         var tempText = TextFile.text;
         foreach (var record in _answers)
@@ -29,7 +29,7 @@ public class TestCall_LimeServey : MonoBehaviour
         
         TextFile = new TextAsset(tempText);
         
-        AssetDatabase.CreateAsset(TextFile, "Assets/MyText.txt");
+        //UnityEditor.AssetDatabase.CreateAsset(TextFile, "Assets/MyText.txt"); TODO: Save the file later
         
         uploader.StartUpload(TextFile);
     }
